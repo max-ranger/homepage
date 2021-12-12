@@ -1,32 +1,55 @@
+import React, { Component } from 'react';
+import ReactGA from 'react-ga';
+import $ from 'jquery';
 import './App.css';
-//import titleImg from './Resources/images/title_img.jpg';
-import portraitImg from './Resources/images/portrait_img.png';
+import About from './Components/About';
+import Footer from './Components/Footer';
+import Header from './Components/Header';
+import Resume from './Components/Resume';
 
-function App() {
-  return(
-    <div className="App">
-      <header className="App-header">
-        <div>
-          <img src={portraitImg} className="App-img" alt="me" />
-        </div>
-        <div> 
-          <div className="App-title">
-            <h4>Hello there!</h4>
-            <h1>I'm Maximilian Ranger</h1>
-            <h2>software engineer</h2>
-          </div>
-          <div>
-            <p
-              className="App-link"
-              // link to tag #about-me
-            >
-              About me
-            </p>
-          </div>
-        </div>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      foo: 'bar',
+      resumeData: {}
+    };
+
+    ReactGA.initialize('UA-110570651-1');
+    ReactGA.pageview(window.location.pathname);
+
+  }
+
+  getResumeData() {
+    $.ajax({
+      url: '/resumeData.json',
+      dataType: 'json',
+      cache: false,
+      success: function(data) {
+        this.setState({resumeData: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.log(err);
+        alert(err);
+      }
+    });
+  }
+
+  componentDidMount() {
+    this.getResumeData();
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Header data={this.state.resumeData.main} />
+        <About data={this.state.resumeData.main} />
+        <Resume data={this.state.resumeData.resume} />
+        <Footer data={this.state.resumeData.main} />
+      </div>
+    );
+  }
 }
 
 export default App;
