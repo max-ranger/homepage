@@ -1,4 +1,4 @@
-export var data = {
+{
   "main": {
     "name": "Maximilian Ranger",
     "occupation": "software engineer",
