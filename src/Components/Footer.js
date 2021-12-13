@@ -18,7 +18,7 @@ class Footer extends Component {
             </ul>
             <ul className="copyright">
                 <li>&copy; Maximilian Ranger</li>
-                <li>Softwarepark Hagenberg</li>
+                <li>Design by <a title="Styleshout" href="http://www.styleshout.com/" target="_blank">Softwarepark Hagenberg</a></li>
             </ul>
           </div>
           <div id="go-top">
