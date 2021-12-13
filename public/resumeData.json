@@ -4,7 +4,7 @@
     "occupation": "software engineer",
     "description": "I currently study at the University of Applied Sciences Upper Austria, Campus Hagenberg.",
     "image": "profilepic.png",
-    "bio": "Use this bio section as your way of describing yourself and saying what you do, what technologies you like to use or feel most comfortable with, describing your personality, or whatever else you feel like throwing in.",
+    "bio": "Hello there, my name is Max. I am 26 years old and currently studying software engineering at the University of Applied Sciences in Hagenberg. Aside from my interest in new technologies and coding, I like to spend my free time with friends or enjoy a quite movie night, preferably with a nice cup of coffee because it is always time for coffee.",
     "email": "max@ranger.co.at",
     "phone": "+43 660 2596396",
     "address": {
@@ -13,8 +13,8 @@
       "state": "Austria",
       "zip": "4232"
     },
-    "website": "https://rangerhome.homeip.net/maximilian-ranger/",
-    "resumedownload": "https://rangerhome.homeip.net/maximilian-ranger/",
+    "website": "https://rangerhome.homeip.net/maximilian-ranger",
+    "resumedownload": "https://rangerhome.homeip.net/maximilian-ranger",
     "social": [
       {
         "name": "facebook",

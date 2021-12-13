@@ -3,9 +3,9 @@ import React, { Component } from "react";
 class About extends Component {
   render() {
 
-    if(this.props.data){
+    if (this.props.data) {
       var name = this.props.data.name;
-      var profilepic = "images/" + this.props.data.image;
+      var profilepic = "images/"+this.props.data.image;
       var bio = this.props.data.bio;
       var street = this.props.data.address.street;
       var city = this.props.data.address.city;
@@ -34,7 +34,7 @@ class About extends Component {
                     {city} {state}, {zip}
                   </span><br />
                   <span>{phone}</span><br />
-                  <span>{email}</span>
+                  <span><a href="mailto:max@ranger.co.at">{email}</a></span>
                 </p>
               </div>
               <div className="columns download">
