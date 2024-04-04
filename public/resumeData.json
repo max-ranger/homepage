@@ -4,7 +4,7 @@
     "occupation": "software engineer",
     "description": "I currently study at the University of Applied Sciences Upper Austria, Campus Hagenberg.",
     "image": "profilepic.png",
-    "bio": "Hello there, my name is Max. I am 26 years old and currently studying software engineering at the University of Applied Sciences in Hagenberg. Aside from my interest in new technologies and coding, I like to spend my free time with friends or enjoy a quite movie night, preferably with a nice cup of coffee because it is always time for coffee.",
+    "bio": "Use this bio section as your way of describing yourself and saying what you do, what technologies you like to use or feel most comfortable with, describing your personality, or whatever else you feel like throwing in.",
     "email": "max@ranger.co.at",
     "phone": "+43 660 2596396",
     "address": {
@@ -13,8 +13,8 @@
       "state": "Austria",
       "zip": "4232"
     },
-    "website": "https://rangerhome.homeip.net/maximilian-ranger",
-    "resumedownload": "maximilian_ranger_resume.pdf",
+    "website": "https://rangerhome.homeip.net/maximilian-ranger/",
+    "resumedownload": "https://rangerhome.homeip.net/maximilian-ranger/",
     "social": [
       {
         "name": "facebook",
@@ -43,12 +43,12 @@
       {
         "school": "University of Applied Sciences Upper Austria, Campus Hagenberg",
         "degree": "Bachelor in Software Engineering",
-        "graduated": "2018 - Present",
+        "graduated": "2018 - 2022",
         "description": ""
       },
       {
         "school": "Vienna University of Economics and Business",
-        "degree": "Bachelor in Business, Economics and Social Sciences / Business Informatics",
+        "degree": "Economics and Social Sciences / Business Informatics",
         "graduated": "2015 - 2018",
         "description": ""
       },
@@ -60,6 +60,24 @@
       }
     ],
     "work": [
+      {
+        "company": "Count IT Group",
+        "title": "Software Engineering",
+        "years": "2022/2024",
+        "description": "Fullstack .NET Developer"
+      },
+      {
+        "company": "Count IT Group",
+        "title": "Software Engineering Intern",
+        "years": "Summer semester 2022",
+        "description": "Internship as part of studies."
+      },
+      {
+        "company": "University of Applied Sciences Upper Austria, Campus Hagenberg",
+        "title": "Tutor for Software Engineering",
+        "years": "Semester 19/20",
+        "description": "Codereviews and work grading to assist professors."
+      },
       {
         "company": "Economy Wirtschaftstreuhand GmBH / Steuerberater Mag. Herwig Ranger",
         "title": "Accountant and IT support",
