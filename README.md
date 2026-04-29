@@ -157,12 +157,17 @@ builds the image on every push to `main` (or any `v*` tag) and pushes it to
 **Deploy with Zero:**
 
 ```sh
-zero deploy ghcr.io/max-ranger/homepage:latest
+zero deploy ghcr.io/max-ranger/homepage:latest --domain ranger.ac
 ```
 
 Zero reads the `EXPOSE 8080` directive from the Dockerfile, picks up the
-image, terminates TLS, and routes the configured domain to the container.
-Override defaults with `--name`, `--domain`, or `--host-port` as needed.
+image, terminates TLS, and routes `ranger.ac` to the container. The
+domain's DNS (Cloudflare) already points at ranger-server, so no DNS
+change is needed when redeploying.
+
+Other override flags: `--name`, `--host-port`. Re-running with a different
+`--domain` swaps the binding without recreating the container; drop the
+flag to fall back to Zero's default.
 
 ## Legal
 
