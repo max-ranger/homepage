@@ -126,7 +126,7 @@ Edit the SVG, re-run the script, ship.
 The build is fully static — `pnpm build` produces a `dist/` folder you can
 serve anywhere. The included [`Dockerfile`](./Dockerfile) and
 [`docker-compose.yml`](./docker-compose.yml) wrap that bundle in a small
-Node + `serve` runtime listening on `:3000`.
+Node + `serve` runtime listening on `:8080`.
 
 ### Local smoke test
 
@@ -134,7 +134,7 @@ Node + `serve` runtime listening on `:3000`.
 docker compose up --build
 ```
 
-Hit http://localhost:3000 to verify before pushing the image upstream.
+Hit http://localhost:8080 to verify before pushing the image upstream.
 
 ### Production — Zero + GHCR
 
@@ -160,7 +160,7 @@ builds the image on every push to `main` (or any `v*` tag) and pushes it to
 zero deploy ghcr.io/max-ranger/homepage:latest
 ```
 
-Zero reads the `EXPOSE 3000` directive from the Dockerfile, picks up the
+Zero reads the `EXPOSE 8080` directive from the Dockerfile, picks up the
 image, terminates TLS, and routes the configured domain to the container.
 Override defaults with `--name`, `--domain`, or `--host-port` as needed.
 
