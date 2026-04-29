@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# homepage
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Personal site — Vite + Vue 3 + TypeScript + Tailwind v4. Terminal-inspired
+single-page layout with auto-switching **Amber Forest** (dark) and
+**Ivory & Sage** (light) palettes.
 
-## Available Scripts
+## Run
 
-In the project directory, you can run:
+```sh
+pnpm install
+pnpm dev        # http://localhost:5173
+pnpm build      # outputs to ./dist
+pnpm preview    # serve the built bundle
+pnpm typecheck  # vue-tsc --noEmit
+```
 
-### `npm start`
+## Edit content
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+All site content lives in [`src/content.ts`](./src/content.ts) — the `MAX`
+object holds name, role, skills, services, projects, experience, testimonials,
+and socials. Edit there, save, hot-reload picks it up.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Layout
 
-### `npm test`
+```
+src/
+├── App.vue
+├── main.ts
+├── style.css                     ← global theme + utilities
+├── content.ts                    ← typed site data
+├── composables/
+│   ├── useTheme.ts               ← auto / dark / light, persists to localStorage
+│   ├── useReveals.ts             ← IntersectionObserver fade-in for [data-reveal]
+│   └── useCommandPalette.ts      ← ⌘K / Ctrl+K state + filtering
+└── components/
+    ├── Shell.vue                 ← root, wires everything together
+    ├── TopBar.vue                ← window dots, UTC clock, ⌘K, theme toggle
+    ├── Hero.vue                  ← whoami typing animation, name, summary
+    ├── HeroRipple.vue            ← mouse-tracking radial gradient
+    ├── About.vue                 ← readme.md + stack.json cards
+    ├── Projects.vue              ← project grid with hover peek
+    ├── Services.vue              ← three offer cards
+    ├── Experience.vue            ← timeline of roles
+    ├── Testimonials.vue          ← three quote cards
+    ├── Contact.vue               ← mailto + social links
+    ├── StatusFooter.vue          ← bottom status bar
+    ├── SectionHead.vue           ← `// 0X title` heading row
+    ├── Palette.vue               ← ⌘K command palette modal
+    └── CustomCursor.vue          ← dot + trailing ring
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Theme
 
-### `npm run build`
+`<Shell initial-theme="auto" />` follows `prefers-color-scheme` by default. The
+◐ button cycles `auto → dark → light → auto` and persists to localStorage.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Palettes are CSS variables on `.root` / `.root[data-theme="light"]` in
+[`src/style.css`](./src/style.css):
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Dark — `#0b0c0a` bg, `#e5b94a` gold, `#3a7a6b` forest, `#4ba89a` teal
+- Light — `#f5f1e6` bg, `#b8943a` gold, `#4a7a6a` forest, `#5a8a7a` teal
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Keyboard
 
-### `npm run eject`
+- `⌘K` / `Ctrl+K` — open command palette (nav + theme + mailto)
+- `Esc` — close palette
+- `↑` / `↓` — move selection in palette, `Enter` to run
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Deploy
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The build is fully static — `pnpm build` produces a `dist/` folder you can
+serve from anywhere (GitHub Pages, Cloudflare Pages, Netlify, Vercel, S3,
+plain nginx). No server runtime needed.
