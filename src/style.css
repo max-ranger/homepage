@@ -914,6 +914,21 @@ body,
 .statusbar-sp {
   flex: 1;
 }
+.statusbar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.statusbar-link:hover {
+  color: var(--gold);
+}
 
 /* Palette ──────────────────────────────────────────────────────── */
 .palette-backdrop {
@@ -1139,6 +1154,28 @@ body,
   color: var(--muted);
   font-style: italic;
   margin: 0;
+}
+.legal-dialog {
+  max-width: min(720px, 100%);
+}
+.legal-body {
+  gap: 28px;
+}
+.legal-section h4 {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+.legal-text {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--fg);
+  margin: 0;
+  white-space: pre-line;
 }
 .dialog-continuation {
   font-size: 13px;

@@ -1,0 +1,16 @@
+services:
+  homepage:
+    build: .
+    image: ranger-homepage:latest
+    container_name: ranger-homepage
+    restart: unless-stopped
+    expose:
+      - "3000"
+    # If your reverse proxy lives on a shared docker network, attach it here.
+    # Replace `proxy` with the actual external network name on your host.
+    # networks:
+    #   - proxy
+
+# networks:
+#   proxy:
+#     external: true

@@ -123,22 +123,28 @@ function deactivate(container: HTMLElement) {
 }
 
 export function useFocusTrap(containerRef: Ref<HTMLElement | null>, isActive: () => boolean) {
+  let activatedContainer: HTMLElement | null = null;
+
   watch(
     isActive,
     (active) => {
-      const container = containerRef.value;
-      if (!container) return;
       if (active) {
+        const container = containerRef.value;
+        if (!container) return;
+        activatedContainer = container;
         activate(container);
-      } else {
-        deactivate(container);
+      } else if (activatedContainer) {
+        deactivate(activatedContainer);
+        activatedContainer = null;
       }
     },
     { flush: 'post' },
   );
 
   onBeforeUnmount(() => {
-    const container = containerRef.value;
-    if (container) deactivate(container);
+    if (activatedContainer) {
+      deactivate(activatedContainer);
+      activatedContainer = null;
+    }
   });
 }

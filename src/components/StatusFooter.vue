@@ -1,5 +1,11 @@
 <script setup lang="ts">
 const year = new Date().getFullYear();
+const REPO_URL = 'https://github.com/max-ranger/homepage';
+
+defineEmits<{
+  openImpressum: [];
+  openPrivacy: [];
+}>();
 </script>
 
 <template>
@@ -8,6 +14,21 @@ const year = new Date().getFullYear();
     <span class="statusbar-item">utf-8</span>
     <span class="statusbar-item">vue</span>
     <span class="statusbar-sp" />
+    <button class="statusbar-link" data-cursor @click="$emit('openImpressum')">
+      {{ $t('status.impressumLink') }}
+    </button>
+    <button class="statusbar-link" data-cursor @click="$emit('openPrivacy')">
+      {{ $t('status.privacyLink') }}
+    </button>
+    <a
+      class="statusbar-link"
+      data-cursor
+      :href="REPO_URL"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {{ $t('status.sourceLink') }} ↗
+    </a>
     <span class="statusbar-item">{{ $t('status.copyright', { year }) }}</span>
     <span class="statusbar-item">ln 99, col 1</span>
   </footer>

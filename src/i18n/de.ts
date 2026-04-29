@@ -256,6 +256,8 @@ export default {
       theme: { label: 'thema umschalten' },
       language: { label: 'sprache umschalten' },
       mailto: { label: 'mailto: max' },
+      impressum: { label: 'impressum öffnen', hint: 'rechtliches' },
+      privacy: { label: 'datenschutz öffnen', hint: 'rechtliches' },
     },
   },
   serviceDialog: {
@@ -272,5 +274,56 @@ export default {
   status: {
     builtWith: 'gebaut mit vue + vite',
     copyright: '© {year} max',
+    impressumLink: 'impressum',
+    privacyLink: 'datenschutz',
+    sourceLink: 'quellcode',
+  },
+  legal: {
+    closeHint: 'zum Schließen',
+    impressum: {
+      title: 'Impressum',
+      lastUpdated: 'Stand: {date}',
+      providerHead: '// diensteanbieter',
+      providerBody:
+        'Maximilian Ranger\nCharwatstraße 10a\n4600 Wels, Österreich',
+      contactHead: '// kontakt',
+      contactBody: "E-Mail: max{'@'}ranger.co.at",
+      activityHead: '// unternehmensgegenstand',
+      activityBody:
+        'Softwareentwicklung im Nebenerwerb — Beratung, Prototyping, kleinere Web-Builds und Wartungsverträge.',
+      regulatoryHead: '// berufsrechtliche angaben',
+      regulatoryBody:
+        '[GISA-Zahl, falls Gewerbeschein vorhanden]\n[WKO-Mitgliedschaft, falls relevant]\nAufsichtsbehörde: Magistrat der Stadt Wels — Bezirksverwaltungsbehörde\nBerufsbezeichnung: [laut Gewerbeschein bzw. „freie Berufstätigkeit"]',
+      odrHead: '// online-streitbeilegung',
+      odrBody: 'Plattform der EU-Kommission zur Online-Streitbeilegung: https://ec.europa.eu/odr',
+      liabilityHead: '// haftung für externe links',
+      liabilityBody:
+        'Externe Links wurden zum Zeitpunkt der Verlinkung geprüft. Für die laufenden und künftigen Inhalte verlinkter Seiten ist ausschließlich der jeweilige Betreiber verantwortlich.',
+    },
+    privacy: {
+      title: 'Datenschutzerklärung',
+      lastUpdated: 'Stand: {date}',
+      controllerHead: '// verantwortlicher',
+      controllerBody:
+        "Maximilian Ranger\nCharwatstraße 10a\n4600 Wels, Österreich\nmax{'@'}ranger.co.at",
+      dataHead: '// welche daten verarbeitet werden',
+      dataBody:
+        'Diese Website ist weitgehend statisch und sammelt von sich aus keine personenbezogenen Daten. Wenn Sie über den E-Mail-Link Kontakt aufnehmen, übermitteln Sie freiwillig Ihre E-Mail-Adresse und die Inhalte Ihrer Nachricht. Diese Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet und nach deren Abschluss gelöscht (Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO).',
+      logsHead: '// server-logs',
+      logsBody:
+        'Beim Aufruf der Website verarbeitet der Hosting-Provider gegebenenfalls technische Daten (IP-Adresse, Datum/Uhrzeit, User-Agent) zu Sicherheitszwecken. Diese Logs werden nach kurzer Zeit gelöscht.',
+      fontsHead: '// schriftarten',
+      fontsBody:
+        'Die Website lädt Schriftarten von Google Fonts (https://fonts.google.com). Beim Laden wird Ihre IP-Adresse an Google übertragen. Rechtsgrundlage: berechtigtes Interesse an einer ansprechenden Darstellung (Art. 6 Abs. 1 lit. f DSGVO).',
+      localStorageHead: '// lokale speicherung',
+      localStorageBody:
+        'Die Website speichert Ihre Sprach- und Theme-Einstellung im Browser (localStorage). Diese Daten verbleiben auf Ihrem Gerät und werden nicht an den Server übertragen.',
+      rightsHead: '// ihre rechte',
+      rightsBody:
+        "Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Anfragen: max{'@'}ranger.co.at",
+      authorityHead: '// beschwerdestelle',
+      authorityBody:
+        'Datenschutzbehörde Österreich, Barichgasse 40-42, 1030 Wien — https://www.dsb.gv.at',
+    },
   },
 };

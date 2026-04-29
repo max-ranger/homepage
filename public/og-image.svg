@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="ui-monospace, 'JetBrains Mono', Menlo, Consolas, monospace">
+  <defs>
+    <pattern id="dots" width="36" height="36" patternUnits="userSpaceOnUse">
+      <circle cx="36" cy="36" r="1.4" fill="#e5b94a" opacity="0.22"/>
+    </pattern>
+    <radialGradient id="goldGlow" cx="22%" cy="78%" r="58%">
+      <stop offset="0%" stop-color="#e5b94a" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#e5b94a" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="tealGlow" cx="82%" cy="20%" r="52%">
+      <stop offset="0%" stop-color="#4ba89a" stop-opacity="0.30"/>
+      <stop offset="100%" stop-color="#4ba89a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Base -->
+  <rect width="1200" height="630" fill="#0b0c0a"/>
+  <rect width="1200" height="630" fill="url(#goldGlow)"/>
+  <rect width="1200" height="630" fill="url(#tealGlow)"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+
+  <!-- Window dots -->
+  <circle cx="68" cy="68" r="7" fill="#e16d52"/>
+  <circle cx="96" cy="68" r="7" fill="#e5b94a"/>
+  <circle cx="124" cy="68" r="7" fill="#4ba89a"/>
+  <text x="156" y="74" font-size="18" fill="#7a7a70" letter-spacing="0.4">max@dev — ranger.ac</text>
+
+  <!-- Prompt line -->
+  <text x="68" y="208" font-size="26" letter-spacing="0.3">
+    <tspan fill="#4ba89a">max@dev</tspan><tspan fill="#7a7a70">:</tspan><tspan fill="#e5b94a">~</tspan><tspan fill="#7a7a70">$ </tspan><tspan fill="#e9e4d4">whoami</tspan><tspan fill="#e5b94a" font-size="28">▊</tspan>
+  </text>
+
+  <!-- Big name -->
+  <text x="68" y="342" font-size="104" font-weight="500" fill="#e9e4d4" letter-spacing="-3.5">Max Ranger</text>
+  <text x="68" y="402" font-size="38" fill="#e5b94a" letter-spacing="-0.5">/ software developer</text>
+
+  <!-- Description -->
+  <text x="68" y="496" font-size="22" fill="#a09a86">Full-stack engineer · Upper Austria</text>
+  <text x="68" y="528" font-size="22" fill="#a09a86">Consulting · prototyping · small builds · maintenance</text>
+
+  <!-- Status pill bottom-right -->
+  <g transform="translate(900, 540)">
+    <rect x="0" y="0" rx="6" ry="6" width="240" height="40" fill="none" stroke="#e5b94a" stroke-width="1"/>
+    <circle cx="22" cy="20" r="5" fill="#4ba89a"/>
+    <text x="38" y="26" font-size="16" fill="#e5b94a" letter-spacing="0.3">open to side projects</text>
+  </g>
+
+  <!-- Bottom-left domain -->
+  <text x="68" y="588" font-size="16" fill="#7a7a70" letter-spacing="0.6">● ranger.ac</text>
+</svg>
