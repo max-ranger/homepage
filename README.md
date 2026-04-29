@@ -126,16 +126,43 @@ Edit the SVG, re-run the script, ship.
 The build is fully static — `pnpm build` produces a `dist/` folder you can
 serve anywhere. The included [`Dockerfile`](./Dockerfile) and
 [`docker-compose.yml`](./docker-compose.yml) wrap that bundle in a small
-Node + `serve` runtime listening on `:3000`, ready for an external reverse
-proxy to terminate TLS and route to the container.
+Node + `serve` runtime listening on `:3000`.
+
+### Local smoke test
 
 ```sh
 docker compose up --build
 ```
 
-The compose file exposes `:3000` only — wire it into your proxy network
-(Caddy / Traefik / your-reverse-proxy-of-choice) and route `ranger.ac` →
-`ranger-homepage:3000`.
+Hit http://localhost:3000 to verify before pushing the image upstream.
+
+### Production — Zero + GHCR
+
+The workflow at [`.github/workflows/docker.yml`](./.github/workflows/docker.yml)
+builds the image on every push to `main` (or any `v*` tag) and pushes it to
+**GitHub Container Registry** as:
+
+- `ghcr.io/max-ranger/homepage:latest` — head of `main`
+- `ghcr.io/max-ranger/homepage:main` — same as latest
+- `ghcr.io/max-ranger/homepage:sha-<short-sha>` — pinned to a commit
+- `ghcr.io/max-ranger/homepage:v<x.y.z>` — when a `v*` tag is pushed
+
+**One-time setup** after the first workflow run:
+
+1. On GitHub, go to your profile → Packages → `homepage`.
+2. Package settings → Change visibility → **Public**, so Zero can pull
+   without GHCR auth. (For private images Zero needs a registry credential
+   passed at deploy time — for staging, public is simpler.)
+
+**Deploy with Zero:**
+
+```sh
+zero deploy ghcr.io/max-ranger/homepage:latest
+```
+
+Zero reads the `EXPOSE 3000` directive from the Dockerfile, picks up the
+image, terminates TLS, and routes the configured domain to the container.
+Override defaults with `--name`, `--domain`, or `--host-port` as needed.
 
 ## Legal
 
