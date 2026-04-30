@@ -929,6 +929,11 @@ body,
 .statusbar-link:hover {
   color: var(--gold);
 }
+.status-logo {
+  height: 11px;
+  width: auto;
+  display: inline-block;
+}
 
 /* Palette ──────────────────────────────────────────────────────── */
 .palette-backdrop {
@@ -1193,6 +1198,23 @@ body,
   font-style: italic;
   color: var(--muted);
   margin: 12px 0 0;
+}
+.legal-attribution {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.legal-attribution-logo {
+  height: 28px;
+  width: auto;
+  flex-shrink: 0;
+}
+.legal-link {
+  color: var(--gold);
+  text-decoration: none;
+}
+.legal-link:hover {
+  text-decoration: underline;
 }
 .dialog-continuation {
   font-size: 13px;
