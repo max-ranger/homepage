@@ -3,8 +3,7 @@ const year = new Date().getFullYear();
 const REPO_URL = 'https://github.com/max-ranger/homepage';
 
 defineEmits<{
-  openImpressum: [];
-  openPrivacy: [];
+  openLegal: [];
 }>();
 </script>
 
@@ -14,11 +13,8 @@ defineEmits<{
     <span class="statusbar-item">utf-8</span>
     <span class="statusbar-item">vue</span>
     <span class="statusbar-sp" />
-    <button class="statusbar-link" data-cursor @click="$emit('openImpressum')">
-      {{ $t('status.impressumLink') }}
-    </button>
-    <button class="statusbar-link" data-cursor @click="$emit('openPrivacy')">
-      {{ $t('status.privacyLink') }}
+    <button class="statusbar-link" data-cursor @click="$emit('openLegal')">
+      {{ $t('status.legalLink') }}
     </button>
     <a
       class="statusbar-link"

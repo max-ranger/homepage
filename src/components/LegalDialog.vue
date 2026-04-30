@@ -1,23 +1,18 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, ref, watch } from 'vue';
-import { useI18n } from 'vue-i18n';
+import { onBeforeUnmount, ref, watch } from 'vue';
 import { useFocusTrap } from '@/composables/useFocusTrap';
 
-export type LegalKind = 'impressum' | 'privacy';
-
 const props = defineProps<{
-  kind: LegalKind | null;
+  open: boolean;
 }>();
 
 const emit = defineEmits<{
   close: [];
 }>();
 
-const { t } = useI18n();
-
 const dialogRef = ref<HTMLElement | null>(null);
 
-useFocusTrap(dialogRef, () => props.kind !== null);
+useFocusTrap(dialogRef, () => props.open);
 
 const close = () => emit('close');
 
@@ -26,58 +21,62 @@ const onKey = (e: KeyboardEvent) => {
 };
 
 watch(
-  () => props.kind,
-  (k) => {
-    if (k) document.addEventListener('keydown', onKey);
+  () => props.open,
+  (isOpen) => {
+    if (isOpen) document.addEventListener('keydown', onKey);
     else document.removeEventListener('keydown', onKey);
   },
 );
 
 onBeforeUnmount(() => document.removeEventListener('keydown', onKey));
-
-const sectionKeys = {
-  impressum: ['provider', 'contact', 'activity', 'regulatory', 'odr', 'liability'],
-  privacy: [
-    'controller',
-    'data',
-    'logs',
-    'fonts',
-    'localStorage',
-    'rights',
-    'authority',
-  ],
-} as const;
-
-const sections = computed(() => {
-  const k = props.kind;
-  if (!k) return [];
-  return sectionKeys[k].map((s) => ({
-    head: t(`legal.${k}.${s}Head`),
-    body: t(`legal.${k}.${s}Body`),
-  }));
-});
 </script>
 
 <template>
-  <div v-if="kind" class="dialog-backdrop" @click="close">
+  <div v-if="open" class="dialog-backdrop" @click="close">
     <article
       ref="dialogRef"
       class="dialog legal-dialog"
       role="dialog"
       aria-modal="true"
-      :aria-labelledby="`legal-title-${kind}`"
+      aria-labelledby="legal-title"
       @click.stop
     >
       <header class="dialog-head">
         <span class="dialog-num">// legal</span>
-        <h3 :id="`legal-title-${kind}`">{{ $t(`legal.${kind}.title`) }}</h3>
+        <h3 id="legal-title">{{ $t('legal.notice.title') }}</h3>
         <button class="dialog-close" data-cursor aria-label="close" @click="close">×</button>
       </header>
 
       <div class="dialog-body legal-body">
-        <section v-for="(s, i) in sections" :key="i" class="legal-section">
-          <h4>{{ s.head }}</h4>
-          <p class="legal-text">{{ s.body }}</p>
+        <section class="legal-section">
+          <h4>{{ $t('legal.notice.imprintHead') }}</h4>
+          <h5 class="legal-sub">{{ $t('legal.notice.imprintIntroHead') }}</h5>
+          <p class="legal-text">{{ $t('legal.notice.imprintIntroBody') }}</p>
+          <h5 class="legal-sub">{{ $t('legal.notice.imprintTaxHead') }}</h5>
+          <p class="legal-text">{{ $t('legal.notice.imprintTaxBody') }}</p>
+          <p class="legal-note">{{ $t('legal.notice.imprintObligation') }}</p>
+          <h5 class="legal-sub">{{ $t('legal.notice.imprintContactHead') }}</h5>
+          <p class="legal-text">{{ $t('legal.notice.imprintContactBody') }}</p>
+        </section>
+
+        <section class="legal-section">
+          <h4>{{ $t('legal.notice.copyrightHead') }}</h4>
+          <p class="legal-text">{{ $t('legal.notice.copyrightBody') }}</p>
+        </section>
+
+        <section class="legal-section">
+          <h4>{{ $t('legal.notice.privacyHead') }}</h4>
+          <p class="legal-text">{{ $t('legal.notice.privacyBody') }}</p>
+        </section>
+
+        <section class="legal-section">
+          <h4>{{ $t('legal.notice.liabilityHead') }}</h4>
+          <p class="legal-text">{{ $t('legal.notice.liabilityBody') }}</p>
+        </section>
+
+        <section class="legal-section">
+          <h4>{{ $t('legal.notice.odrHead') }}</h4>
+          <p class="legal-text">{{ $t('legal.notice.odrBody') }}</p>
         </section>
       </div>
 

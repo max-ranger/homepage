@@ -13,8 +13,6 @@ import Education from '@/components/Education.vue';
 import Experience from '@/components/Experience.vue';
 import Hero from '@/components/Hero.vue';
 import LegalDialog from '@/components/LegalDialog.vue';
-
-type LegalKind = 'impressum' | 'privacy';
 import Palette from '@/components/Palette.vue';
 import Projects from '@/components/Projects.vue';
 import Services from '@/components/Services.vue';
@@ -93,25 +91,17 @@ const commands = computed<Command[]>(() => [
   },
   {
     group: t('palette.groups.sys'),
-    label: t('palette.items.impressum.label'),
-    hint: t('palette.items.impressum.hint'),
+    label: t('palette.items.legal.label'),
+    hint: t('palette.items.legal.hint'),
     action: () => {
-      openLegal.value = 'impressum';
-    },
-  },
-  {
-    group: t('palette.groups.sys'),
-    label: t('palette.items.privacy.label'),
-    hint: t('palette.items.privacy.hint'),
-    action: () => {
-      openLegal.value = 'privacy';
+      legalOpen.value = true;
     },
   },
 ]);
 
-const openLegal = ref<LegalKind | null>(null);
+const legalOpen = ref(false);
 const closeLegal = () => {
-  openLegal.value = null;
+  legalOpen.value = false;
 };
 
 const palette = useCommandPalette(commands);
@@ -141,10 +131,7 @@ const openPalette = () => {
       <Experience />
       <Education />
       <Contact />
-      <StatusFooter
-        @open-impressum="openLegal = 'impressum'"
-        @open-privacy="openLegal = 'privacy'"
-      />
+      <StatusFooter @open-legal="legalOpen = true" />
     </div>
     <Palette
       v-model:open="palette.open.value"
@@ -152,6 +139,6 @@ const openPalette = () => {
       v-model:idx="palette.idx.value"
       :filtered="palette.filtered.value"
     />
-    <LegalDialog :kind="openLegal" @close="closeLegal" />
+    <LegalDialog :open="legalOpen" @close="closeLegal" />
   </div>
 </template>

@@ -256,8 +256,7 @@ export default {
       theme: { label: 'theme toggle' },
       language: { label: 'language toggle' },
       mailto: { label: 'mailto: max' },
-      impressum: { label: 'open imprint', hint: 'legal' },
-      privacy: { label: 'open privacy policy', hint: 'legal' },
+      legal: { label: 'open legal notice', hint: 'imprint · privacy · copyright' },
     },
   },
   serviceDialog: {
@@ -272,57 +271,40 @@ export default {
   },
   status: {
     builtWith: 'built with vue + vite',
-    copyright: '© {year} max ranger',
-    impressumLink: 'imprint',
-    privacyLink: 'privacy',
+    copyright: '© {year} Maximilian Ranger. All rights reserved.',
+    legalLink: 'legal notice',
     sourceLink: 'view source',
   },
   legal: {
     closeHint: 'to close',
-    impressum: {
-      title: 'Imprint',
-      lastUpdated: 'Last updated: {date}',
-      providerHead: '// service provider',
-      providerBody:
-        'Maximilian Ranger\nCharwatstraße 10a\n4600 Wels, Austria',
-      contactHead: '// contact',
-      contactBody: "Email: max{'@'}ranger.co.at",
-      activityHead: '// business activity',
-      activityBody:
-        'Software development as a side activity — consulting, prototyping, small web builds, and maintenance.',
-      regulatoryHead: '// regulatory information',
-      regulatoryBody:
-        '[GISA / trade-register number, if applicable]\n[Chamber of Commerce membership, if applicable]\nSupervisory authority: Magistrat der Stadt Wels — Bezirksverwaltungsbehörde\nProfessional title: [as per trade licence, or "freelance activity"]',
-      odrHead: '// online dispute resolution',
-      odrBody: 'European Commission ODR platform: https://ec.europa.eu/odr',
+    notice: {
+      title: 'Legal Notice',
+
+      imprintHead: '// imprint',
+      imprintIntroHead: 'Information according to law',
+      imprintIntroBody:
+        'Maximilian Ranger\nSoftware development\nCharwatstraße 10a\n4600 Wels, Austria',
+      imprintTaxHead: 'Tax & Identification',
+      imprintTaxBody: 'VAT-ID: [PLACEHOLDER]',
+      imprintObligation:
+        'Information obligation according to §5 E-Commerce Act, §14 Corporate Code, and disclosure obligation according to §25 Media Act.',
+      imprintContactHead: 'Contact',
+      imprintContactBody: "max{'@'}ranger.co.at",
+
+      copyrightHead: '// copyright notice',
+      copyrightBody:
+        "All content on this website — including text, images, graphics, and designs — is protected by copyright and is the property of Maximilian Ranger unless otherwise indicated. Any use, reproduction, or distribution without express written permission is prohibited. For inquiries regarding the use of content, please contact: max{'@'}ranger.co.at.",
+
+      privacyHead: '// privacy & data protection',
+      privacyBody:
+        "This site is largely static. If you reach out via the email link, your message and email address are processed only to handle the inquiry (Art. 6(1)(b) GDPR). The hosting provider may briefly log technical request data (IP, time, user agent) for security. Web fonts are loaded from Google Fonts, which transfers your IP to Google (Art. 6(1)(f) GDPR). Theme and language preferences are stored in your browser's localStorage and never transmitted. You have the right to access, rectification, erasure, and complaint to the Datenschutzbehörde Österreich (https://www.dsb.gv.at).",
+
       liabilityHead: '// liability for external links',
       liabilityBody:
-        'External links are checked at the time of inclusion. We are not responsible for the current or future content of linked pages — the respective operators are.',
-    },
-    privacy: {
-      title: 'Privacy Policy',
-      lastUpdated: 'Last updated: {date}',
-      controllerHead: '// data controller',
-      controllerBody:
-        'Maximilian Ranger\nCharwatstraße 10a\n4600 Wels, Austria\nmax{\'@\'}ranger.co.at',
-      dataHead: '// what is processed',
-      dataBody:
-        'This site is largely static and does not collect personal data on its own. If you contact me through the email link, you voluntarily transmit your email address and the contents of your message. This data is used only to handle your inquiry and is deleted once the inquiry is resolved (legal basis: Art. 6(1)(b) GDPR).',
-      logsHead: '// server logs',
-      logsBody:
-        'When the site is loaded, the hosting provider may process technical data (IP address, date/time, user agent) for security purposes. These logs are retained briefly and then deleted.',
-      fontsHead: '// fonts',
-      fontsBody:
-        'The site loads fonts from Google Fonts (https://fonts.google.com). When fonts load, your IP address is transmitted to Google. Legal basis: legitimate interest in a coherent visual presentation (Art. 6(1)(f) GDPR).',
-      localStorageHead: '// local storage',
-      localStorageBody:
-        'The site stores your language preference and theme choice in your browser (localStorage). This data stays on your device and is never transmitted to the server.',
-      rightsHead: '// your rights',
-      rightsBody:
-        'You have the right to access, rectification, erasure, restriction of processing, portability, and objection. Inquiries: max{\'@\'}ranger.co.at',
-      authorityHead: '// supervisory authority',
-      authorityBody:
-        'Datenschutzbehörde Österreich, Barichgasse 40-42, 1030 Vienna — https://www.dsb.gv.at',
+        'External links are checked at the time of inclusion. I am not responsible for the current or future content of linked pages — the respective operators are.',
+
+      odrHead: '// online dispute resolution',
+      odrBody: 'European Commission ODR platform: https://ec.europa.eu/odr',
     },
   },
 };

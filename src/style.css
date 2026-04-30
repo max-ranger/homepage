@@ -1177,6 +1177,23 @@ body,
   margin: 0;
   white-space: pre-line;
 }
+.legal-sub {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--muted);
+  margin: 14px 0 4px;
+}
+.legal-sub:first-of-type {
+  margin-top: 0;
+}
+.legal-note {
+  font-size: 12px;
+  font-style: italic;
+  color: var(--muted);
+  margin: 12px 0 0;
+}
 .dialog-continuation {
   font-size: 13px;
   line-height: 1.55;
