@@ -78,6 +78,22 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onKey));
           <h4>{{ $t('legal.notice.odrHead') }}</h4>
           <p class="legal-text">{{ $t('legal.notice.odrBody') }}</p>
         </section>
+
+        <section class="legal-section">
+          <h4>{{ $t('legal.notice.attributionHead') }}</h4>
+          <p class="legal-text legal-attribution">
+            <img src="/zero-logo.png" alt="zero" class="legal-attribution-logo" />
+            <span>
+              {{ $t('legal.notice.attributionZero') }}
+              <a
+                href="https://shipzero.sh"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="legal-link"
+              >shipzero.sh ↗</a>
+            </span>
+          </p>
+        </section>
       </div>
 
       <footer class="dialog-foot">

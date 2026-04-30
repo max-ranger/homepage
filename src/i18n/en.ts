@@ -305,6 +305,10 @@ export default {
 
       odrHead: '// online dispute resolution',
       odrBody: 'European Commission ODR platform: https://ec.europa.eu/odr',
+
+      attributionHead: '// attributions',
+      attributionZero:
+        'The Zero logo is a brand mark of shipzero, used here with appreciation. This site is shipped with Zero —',
     },
   },
 };

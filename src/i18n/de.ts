@@ -306,6 +306,10 @@ export default {
 
       odrHead: '// online-streitbeilegung',
       odrBody: 'Plattform der EU-Kommission zur Online-Streitbeilegung: https://ec.europa.eu/odr',
+
+      attributionHead: '// danksagungen',
+      attributionZero:
+        'Das Zero-Logo ist ein Markenzeichen von shipzero und wird hier mit Anerkennung verwendet. Diese Seite wurde mit Zero ausgeliefert —',
     },
   },
 };

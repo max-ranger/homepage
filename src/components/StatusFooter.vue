@@ -12,6 +12,15 @@ defineEmits<{
     <span class="statusbar-item"><span class="dot-inline" />ready</span>
     <span class="statusbar-item">utf-8</span>
     <span class="statusbar-item">vue</span>
+    <a
+      class="statusbar-link"
+      data-cursor
+      href="https://shipzero.sh"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img src="/zero-favicon.png" alt="" class="status-logo" />shipped with zero ↗
+    </a>
     <span class="statusbar-sp" />
     <button class="statusbar-link" data-cursor @click="$emit('openLegal')">
       {{ $t('status.legalLink') }}
