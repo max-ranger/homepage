@@ -31,6 +31,7 @@ export type LocalizedExperience = {
   role: string;
   org: string;
   years: string;
+  yearsShort: string;
   note: string;
 };
 
@@ -39,8 +40,16 @@ export type LocalizedEducation = {
   degree: string;
   org: string;
   years: string;
+  yearsShort: string;
   note: string;
 };
+
+const MONTH_NAME_WITH_YEAR = /\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{4})\b/g;
+const SAME_YEAR_RANGE = /(\d{4})\s+—\s+\1/g;
+
+function yearsOnly(input: string): string {
+  return input.replace(MONTH_NAME_WITH_YEAR, '$1').replace(SAME_YEAR_RANGE, '$1');
+}
 
 export function useContent() {
   const { t, te, tm, rt } = useI18n();
@@ -87,6 +96,7 @@ export function useContent() {
       role: t(`experience.entries.${e.id}.role`),
       org: t(`experience.entries.${e.id}.org`),
       years: e.years,
+      yearsShort: yearsOnly(e.years),
       note: t(`experience.entries.${e.id}.note`),
     })),
   );
@@ -97,6 +107,7 @@ export function useContent() {
       degree: t(`education.entries.${e.id}.degree`),
       org: t(`education.entries.${e.id}.org`),
       years: e.years,
+      yearsShort: yearsOnly(e.years),
       note: t(`education.entries.${e.id}.note`),
     })),
   );

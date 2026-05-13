@@ -54,7 +54,7 @@ onBeforeUnmount(() => {
     </div>
     <div class="topbar-c">{{ $t('topbar.domain') }}</div>
     <div class="topbar-r">
-      <span>{{ formatted }} {{ offset }}</span>
+      <span class="topbar-clock">{{ formatted }} {{ offset }}</span>
       <button
         class="kbd"
         data-cursor

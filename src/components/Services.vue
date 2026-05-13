@@ -42,7 +42,7 @@ const onKey = (e: KeyboardEvent, service: LocalizedService) => {
           <span v-if="i < services.length - 1" class="svc-flow-arrow">→</span>
         </template>
       </div>
-      <p class="svc-flow-hint">{{ $t('services.flowHint') }}</p>
+      <p class="section-hint">{{ $t('services.flowHint') }}</p>
     </div>
     <div class="svc-grid">
       <article

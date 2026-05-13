@@ -16,12 +16,12 @@ export default {
   hero: {
     titleSuffix: '/ Softwareentwickler',
     location: 'Wels, Oberösterreich · Remote',
-    languages: ['Deutsch (Muttersprache)', 'Englisch (C1)'],
+    languages: ['Deutsch (Muttersprache)', 'Englisch (C2)'],
     para1:
       'Full-Stack. .NET & Postgres am Server, Vue oder React am Client, und der Klebstoff, den das Problem braucht.',
     para2:
-      'Hauptberuflich bei codebeam — daneben offen für kleinere und mittlere Nebenprojekte. Im Q2 / Q3 2026 sind Plätze frei.',
-    statusValue: '● offen für Nebenprojekte',
+      'Offen für Auftrags- und Freelance-Projekte. Sofort verfügbar, Buchungen für Q2 / Q3 2026.',
+    statusValue: '● offen für neue Projekte',
     kv: {
       location: 'standort',
       status: 'status',
@@ -33,6 +33,7 @@ export default {
   },
   about: {
     cardReadme: 'readme.md',
+    cardPortrait: 'me.png',
     cardStack: 'stack.json',
     headings: {
       title: '# Max',
@@ -40,7 +41,7 @@ export default {
       goodAt: '## Worin ich gut bin',
     },
     intro:
-      'Softwareentwickler aus Oberösterreich. Hauptberuflich bei codebeam in der Full-Stack Produktentwicklung, mit ein paar Nebenprojekten pro Jahr.',
+      'Softwareentwickler aus Oberösterreich. Offen für Auftrags- und Freelance-Projekte. Sofort verfügbar, Buchungen für Q2 / Q3 2026.',
     howIWork:
       'Kurzes Kickoff-Gespräch zur Scope-Klärung. Schriftliches Briefing, bevor Code geschrieben wird — damit wir einig sind, wie Erfolg aussieht. Häufige kleine Commits, demo-fähige Preview-Deploys, wenn das Projekt es verlangt. Abschluss-Dokument mit nächsten Schritten — Kund:innen sollen auch ohne mich weiterarbeiten können.',
     goodAt: [
@@ -50,12 +51,12 @@ export default {
     ],
     skillGroups: {
       primary: 'haupt-stack',
-      fluent: 'auch sicher in',
+      secondary: 'auch im einsatz',
       approach: 'arbeitsweise',
     },
   },
   projects: {
-    sub: '{count} ausgewählt',
+    sub: 'auswahl',
     peek: {
       project: '// projekt',
       status: '// status',
@@ -245,6 +246,8 @@ export default {
   palette: {
     placeholder: 'Befehl eingeben…',
     empty: 'keine Treffer',
+    selectHint: 'auswählen',
+    closeHint: 'schließen',
     groups: { nav: 'nav', sys: 'sys' },
     items: {
       about: { label: 'cd ~/ueber', hint: 'über mich' },
@@ -272,7 +275,8 @@ export default {
   },
   status: {
     builtWith: 'gebaut mit vue + vite',
-    copyright: '© {year} Maximilian Ranger. Alle Rechte vorbehalten.',
+    copyright: '© {year} Maximilian Ranger',
+    copyrightSuffix: 'Alle Rechte vorbehalten.',
     legalLink: 'impressum',
     sourceLink: 'quellcode',
   },

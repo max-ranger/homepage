@@ -17,11 +17,8 @@ const hostnameOf = (url: string): string => {
 
 <template>
   <section id="projects" class="section">
-    <SectionHead
-      tag="// 02"
-      :title="$t('sections.projects')"
-      :sub="$t('projects.sub', { count: projects.length })"
-    />
+    <SectionHead tag="// 02" :title="$t('sections.projects')" />
+    <p class="section-hint">// {{ $t('projects.sub') }}</p>
     <div class="proj-grid">
       <component
         :is="p.url ? 'a' : 'article'"

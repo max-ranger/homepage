@@ -75,6 +75,11 @@ const onKey = (e: KeyboardEvent) => {
         </li>
         <li v-if="filtered.length === 0" class="palette-empty">{{ $t('palette.empty') }}</li>
       </ul>
+      <div class="palette-foot">
+        <span><kbd>↵</kbd> {{ $t('palette.selectHint') }}</span>
+        <span class="palette-foot-sep">·</span>
+        <span><kbd>esc</kbd> {{ $t('palette.closeHint') }}</span>
+      </div>
     </div>
   </div>
 </template>

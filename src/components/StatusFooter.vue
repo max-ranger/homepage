@@ -10,10 +10,10 @@ defineEmits<{
 <template>
   <footer class="statusbar">
     <span class="statusbar-item"><span class="dot-inline" />ready</span>
-    <span class="statusbar-item">utf-8</span>
-    <span class="statusbar-item">vue</span>
+    <span class="statusbar-item statusbar-hide-mobile">utf-8</span>
+    <span class="statusbar-item statusbar-hide-mobile">vue</span>
     <a
-      class="statusbar-link"
+      class="statusbar-link statusbar-shipzero"
       data-cursor
       href="https://shipzero.sh"
       target="_blank"
@@ -26,7 +26,7 @@ defineEmits<{
       {{ $t('status.legalLink') }}
     </button>
     <a
-      class="statusbar-link"
+      class="statusbar-link statusbar-source"
       data-cursor
       :href="REPO_URL"
       target="_blank"
@@ -34,7 +34,10 @@ defineEmits<{
     >
       {{ $t('status.sourceLink') }} ↗
     </a>
-    <span class="statusbar-item">{{ $t('status.copyright', { year }) }}</span>
-    <span class="statusbar-item">ln 99, col 1</span>
+    <span class="statusbar-item"
+      >{{ $t('status.copyright', { year })
+      }}<span class="statusbar-copyright-suffix"> {{ $t('status.copyrightSuffix') }}</span></span
+    >
+    <span class="statusbar-item statusbar-hide-mobile">ln 99, col 1</span>
   </footer>
 </template>

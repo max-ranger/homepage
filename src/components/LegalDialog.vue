@@ -96,8 +96,8 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onKey));
         </section>
       </div>
 
-      <footer class="dialog-foot">
-        <span class="dialog-hint"><kbd>Esc</kbd> {{ $t('legal.closeHint') }}</span>
+      <footer class="dialog-foot dialog-foot-hint-only">
+        <span class="dialog-hint"><kbd>esc</kbd> {{ $t('legal.closeHint') }}</span>
       </footer>
     </article>
   </div>
