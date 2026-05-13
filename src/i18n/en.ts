@@ -16,12 +16,12 @@ export default {
   hero: {
     titleSuffix: '/ software developer',
     location: 'Wels, Upper Austria · Remote',
-    languages: ['German (native)', 'English (C1)'],
+    languages: ['German (native)', 'English (C2)'],
     para1:
       'Full-stack. .NET & Postgres on the server, Vue or React on the client, and whatever glue the problem needs.',
     para2:
-      'Day job at codebeam — open to small / medium side projects on the side. Q2 / Q3 2026 has openings.',
-    statusValue: '● open to side projects',
+      'Open to contract and freelance work. Available immediately, Q2 / Q3 2026 booking.',
+    statusValue: '● open to new projects',
     kv: {
       location: 'location',
       status: 'status',
@@ -33,6 +33,7 @@ export default {
   },
   about: {
     cardReadme: 'readme.md',
+    cardPortrait: 'me.png',
     cardStack: 'stack.json',
     headings: {
       title: '# Max',
@@ -40,7 +41,7 @@ export default {
       goodAt: "## What I'm good at",
     },
     intro:
-      'Software engineer based in Upper Austria. Full-time at codebeam on full-stack product work, taking on a small number of side projects each year.',
+      'Software engineer based in Upper Austria. Open to contract and freelance work. Available immediately, Q2 / Q3 2026 booking.',
     howIWork:
       "Short kickoff call to scope the work. Written brief before any code, so we're aligned on what success looks like. Frequent small commits, demo-able preview deploys when the build calls for it. End-of-engagement hand-off doc with next steps — clients should be able to keep moving without me.",
     goodAt: [
@@ -50,12 +51,12 @@ export default {
     ],
     skillGroups: {
       primary: 'primary',
-      fluent: 'also fluent in',
+      secondary: 'secondary',
       approach: 'approach',
     },
   },
   projects: {
-    sub: '{count} selected',
+    sub: 'selection',
     peek: {
       project: '// project',
       status: '// status',
@@ -245,6 +246,8 @@ export default {
   palette: {
     placeholder: 'type a command…',
     empty: 'no matches',
+    selectHint: 'to select',
+    closeHint: 'to close',
     groups: { nav: 'nav', sys: 'sys' },
     items: {
       about: { label: 'cd ~/about', hint: 'about' },
@@ -271,7 +274,8 @@ export default {
   },
   status: {
     builtWith: 'built with vue + vite',
-    copyright: '© {year} Maximilian Ranger. All rights reserved.',
+    copyright: '© {year} Maximilian Ranger',
+    copyrightSuffix: 'All rights reserved.',
     legalLink: 'legal notice',
     sourceLink: 'view source',
   },

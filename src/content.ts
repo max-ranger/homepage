@@ -4,7 +4,7 @@ export type Social = {
   url: string;
 };
 
-export type SkillGroupKey = 'primary' | 'fluent' | 'approach';
+export type SkillGroupKey = 'primary' | 'secondary' | 'approach';
 
 export type Skills = Record<SkillGroupKey, string[]>;
 
@@ -60,8 +60,8 @@ export const MAX: ProfileData = {
     },
   ],
   skills: {
-    primary: ['.NET', 'C#', 'Vue', 'PostgreSQL', 'Docker'],
-    fluent: ['React', 'SQL', 'MySQL', 'MsSQL', 'Flutter', 'React Native'],
+    primary: ['.NET', 'C#', 'Vue', 'TypeScript', 'PostgreSQL', 'Docker', 'Git', 'CI/CD'],
+    secondary: ['React', 'Flutter', 'SQL', 'MySQL', 'MsSQL'],
     approach: ['Full-stack product work', 'Prototyping', 'Code review', 'Team support'],
   },
   services: [
@@ -100,19 +100,19 @@ export const MAX: ProfileData = {
   projects: [
     {
       id: 'p1',
-      year: '2025 — now',
+      year: '2025',
       status: 'Live',
       stack: ['.NET', 'Vue', 'Postgres', 'Docker'],
     },
     {
       id: 'p2',
-      year: '2024 — now',
+      year: '2025 — 2026',
       status: 'Live',
       stack: ['.NET', 'Vue', 'MySQL'],
     },
     {
       id: 'p3',
-      year: '2024',
+      year: '2025',
       status: 'Live',
       stack: ['.NET', 'Vue', 'Postgres', 'Docker'],
     },

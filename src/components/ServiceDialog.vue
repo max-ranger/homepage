@@ -90,7 +90,7 @@ const mailtoFor = (s: LocalizedService): string => {
       </div>
 
       <footer class="dialog-foot">
-        <span class="dialog-hint"><kbd>Esc</kbd> {{ $t('serviceDialog.closeHint') }}</span>
+        <span class="dialog-hint"><kbd>esc</kbd> {{ $t('serviceDialog.closeHint') }}</span>
         <a class="dialog-cta" data-cursor :href="mailtoFor(service)">
           {{ $t('serviceDialog.cta') }}
         </a>

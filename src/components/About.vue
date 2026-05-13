@@ -2,9 +2,11 @@
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { MAX, type SkillGroupKey } from '@/content';
+import { useContent } from '@/composables/useContent';
 import SectionHead from '@/components/SectionHead.vue';
 
 const { t, tm, rt } = useI18n();
+const { name } = useContent();
 
 const goodAt = computed(() => {
   const raw = tm('about.goodAt') as unknown[];
@@ -24,6 +26,19 @@ const skillGroups = computed(() =>
   <section id="about" class="section">
     <SectionHead tag="// 01" :title="$t('sections.about')" />
     <div class="about-grid">
+      <div class="card about-portrait" data-reveal>
+        <div class="card-head">{{ $t('about.cardPortrait') }}</div>
+        <div class="card-body">
+          <img
+            src="/portrait.png"
+            :alt="name"
+            width="827"
+            height="1063"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
       <div class="card about-card" data-reveal>
         <div class="card-head">{{ $t('about.cardReadme') }}</div>
         <div class="card-body md">
