@@ -22,7 +22,7 @@ body,
   --fg: #e9e4d4;
   --bg: #0b0c0a;
   --panel: #121311;
-  --muted: #7a7a70;
+  --muted: #888880;
   --line: rgba(233, 228, 212, 0.08);
   --gold: #e5b94a;
   --forest: #3a7a6b;
@@ -183,6 +183,7 @@ body,
   position: absolute;
   inset: 0;
   pointer-events: none;
+  contain: layout paint;
   --mx: 50%;
   --my: 50%;
   background:
@@ -1460,5 +1461,14 @@ body,
   .cursor-dot,
   .cursor-ring {
     display: none;
+  }
+  /* Enlarge the mailto tap target to ~44px on touch; keep the dashed
+     underline glued to the text by switching off the bottom border. */
+  .hero-kv a {
+    display: inline-block;
+    padding-block: 14px;
+    border-bottom: 0;
+    text-decoration: underline dashed var(--gold);
+    text-underline-offset: 4px;
   }
 }

@@ -3,7 +3,7 @@ import { onBeforeUnmount, onMounted, ref } from 'vue';
 import { useContent } from '@/composables/useContent';
 import HeroRipple from '@/components/HeroRipple.vue';
 
-const { name, email, location, languages } = useContent();
+const { name, email, location, languages, skills } = useContent();
 
 const FULL = 'whoami';
 const prefersReducedMotion =
@@ -35,7 +35,7 @@ onBeforeUnmount(() => {
         <span class="prompt-sep">:</span>
         <span class="prompt-path">~</span>
         <span class="prompt-sep">$</span>
-        <span class="prompt-cmd">{{ typed }}<span class="blink">▊</span></span>
+        <span class="prompt-cmd">{{ typed }}<span class="blink" aria-hidden="true">▊</span></span>
       </div>
 
       <h1 class="hero-title">
@@ -44,17 +44,17 @@ onBeforeUnmount(() => {
       </h1>
 
       <div class="hero-desc">
-        <p data-reveal>{{ $t('hero.para1') }}</p>
-        <p data-reveal>{{ $t('hero.para2') }}</p>
+        <p>{{ $t('hero.para1') }}</p>
+        <p>{{ $t('hero.para2') }}</p>
       </div>
 
-      <dl class="hero-kv" data-reveal>
+      <dl class="hero-kv">
         <dt>{{ $t('hero.kv.location') }}</dt>
         <dd>{{ location }}</dd>
         <dt>{{ $t('hero.kv.status') }}</dt>
         <dd><span class="badge live">{{ $t('hero.statusValue') }}</span></dd>
         <dt>{{ $t('hero.kv.stack') }}</dt>
-        <dd>.NET · C# · Vue · React · Tailwind · Postgres · Blazor</dd>
+        <dd>{{ skills.primary.join(' · ') }}</dd>
         <dt>{{ $t('hero.kv.languages') }}</dt>
         <dd>{{ languages.join(' · ') }}</dd>
         <dt>{{ $t('hero.kv.reach') }}</dt>
