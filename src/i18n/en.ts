@@ -233,7 +233,7 @@ export default {
       matura: {
         degree: 'Matura',
         org: 'BG/BRG Brucknerstrasse',
-        note: 'Linz, Austria.',
+        note: 'Wels, Austria.',
       },
     },
   },
