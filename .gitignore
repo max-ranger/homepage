@@ -53,7 +53,7 @@ playwright-report/
 test-results/
 
 # Claude-specific files
-CLAUDE.md
+CLAUDE.local.md
 .claude/
 .superpowers/
 docs/superpowers/
