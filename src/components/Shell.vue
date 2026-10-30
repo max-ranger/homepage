@@ -29,7 +29,7 @@ useReveals(scrollRef, [theme, lang]);
 
 const scrollTo = (selector: string) => {
   const el = scrollRef.value?.querySelector(selector);
-  if (el instanceof HTMLElement) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (el instanceof HTMLElement) el.scrollIntoView({ block: 'start' });
 };
 
 const commands = computed<Command[]>(() => [
@@ -72,7 +72,7 @@ const commands = computed<Command[]>(() => [
   {
     group: t('palette.groups.sys'),
     label: t('palette.items.theme.label'),
-    hint: theme.value,
+    hint: t(`common.themes.${theme.value}`),
     action: toggleTheme,
   },
   {

@@ -7,6 +7,12 @@ export function useReveals(rootRef: Ref<HTMLElement | null>, deps: Ref<unknown>[
     observer?.disconnect();
     const root = rootRef.value;
     if (!root) return;
+    const targets = root.querySelectorAll('[data-reveal]:not([data-revealed])');
+    if (typeof IntersectionObserver === 'undefined') {
+      targets.forEach((el) => el.setAttribute('data-revealed', ''));
+      return;
+    }
+    // Threshold 0: any visible pixel reveals, so an element much taller than the viewport still shows.
     observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -16,9 +22,10 @@ export function useReveals(rootRef: Ref<HTMLElement | null>, deps: Ref<unknown>[
           }
         }
       },
-      { root, threshold: 0.15, rootMargin: '0px 0px -40px 0px' },
+      { threshold: 0, rootMargin: '0px 0px -40px 0px' },
     );
-    root.querySelectorAll('[data-reveal]').forEach((el) => observer?.observe(el));
+    targets.forEach((el) => observer?.observe(el));
+    root.setAttribute('data-reveals', '');
   };
 
   onMounted(setup);

@@ -1,13 +1,12 @@
 import { computed, type ComputedRef } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { MAX, type ProjectData, type ServiceData } from '@/content';
+import { MAX, type PriceUnit, type ProjectData, type ProjectStatus, type ServiceData } from '@/content';
 
 export type LocalizedService = {
   id: string;
   title: string;
-  flowLabel: string;
   desc: string;
-  price: string;
+  fromLabel: string;
   details: string;
   included: string[];
   pricing: { id: string; label: string; range: string }[];
@@ -17,13 +16,16 @@ export type LocalizedService = {
 
 export type LocalizedProject = {
   id: string;
+  group: ProjectData['group'];
   title: string;
   year: string;
-  kind: string;
+  kind?: string;
   desc: string;
   stack: string[];
-  status: string;
+  statusKey?: ProjectStatus;
+  statusLabel?: string;
   url?: string;
+  org?: string;
 };
 
 export type LocalizedExperience = {
@@ -33,6 +35,7 @@ export type LocalizedExperience = {
   years: string;
   yearsShort: string;
   note: string;
+  current: boolean;
 };
 
 export type LocalizedEducation = {
@@ -44,15 +47,14 @@ export type LocalizedEducation = {
   note: string;
 };
 
-const MONTH_NAME_WITH_YEAR = /\b(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{4})\b/g;
-const SAME_YEAR_RANGE = /(\d{4})\s+—\s+\1/g;
-
-function yearsOnly(input: string): string {
-  return input.replace(MONTH_NAME_WITH_YEAR, '$1').replace(SAME_YEAR_RANGE, '$1');
-}
-
 export function useContent() {
-  const { t, te, tm, rt } = useI18n();
+  const { t, te, tm, rt, locale } = useI18n();
+
+  // Prices keep a decimal point in content.ts. German reads them with a comma.
+  const formatPrice = (price: string, unit?: PriceUnit): string => {
+    const amount = locale.value === 'de' ? price.replace(/\./g, ',') : price;
+    return unit ? `${amount} / ${t(`services.units.${unit}`)}` : amount;
+  };
 
   const services: ComputedRef<LocalizedService[]> = computed(() =>
     MAX.services.map((s: ServiceData) => {
@@ -61,15 +63,14 @@ export function useContent() {
       return {
         id: s.id,
         title: t(`services.entries.${s.id}.title`),
-        flowLabel: t(`services.entries.${s.id}.flowLabel`),
         desc: t(`services.entries.${s.id}.desc`),
-        price: t(`services.entries.${s.id}.price`),
+        fromLabel: t('services.from', { price: formatPrice(s.from.price, s.from.unit) }),
         details: t(`services.entries.${s.id}.details`),
         included: includedRaw.map((m) => rt(m as Parameters<typeof rt>[0])),
         pricing: s.pricing.map((tier) => ({
           id: tier.id,
           label: t(`services.entries.${s.id}.pricing.${tier.id}`),
-          range: tier.range,
+          range: formatPrice(tier.range, tier.unit),
         })),
         delivery: t(`services.entries.${s.id}.delivery`),
         continuation: te(continuationKey) ? t(continuationKey) : undefined,
@@ -80,13 +81,16 @@ export function useContent() {
   const projects: ComputedRef<LocalizedProject[]> = computed(() =>
     MAX.projects.map((p: ProjectData) => ({
       id: p.id,
+      group: p.group,
       title: t(`projects.entries.${p.id}.title`),
-      kind: t(`projects.entries.${p.id}.kind`),
+      kind: te(`projects.entries.${p.id}.kind`) ? t(`projects.entries.${p.id}.kind`) : undefined,
       desc: t(`projects.entries.${p.id}.desc`),
       year: p.year,
       stack: p.stack,
-      status: p.status,
+      statusKey: p.status,
+      statusLabel: p.status ? t(`projects.status.${p.status}`) : undefined,
       url: p.url,
+      org: p.org,
     })),
   );
 
@@ -95,9 +99,10 @@ export function useContent() {
       id: e.id,
       role: t(`experience.entries.${e.id}.role`),
       org: t(`experience.entries.${e.id}.org`),
-      years: e.years,
-      yearsShort: yearsOnly(e.years),
+      years: t(`experience.entries.${e.id}.years`),
+      yearsShort: t(`experience.entries.${e.id}.yearsShort`),
       note: t(`experience.entries.${e.id}.note`),
+      current: !!e.current,
     })),
   );
 
@@ -106,8 +111,8 @@ export function useContent() {
       id: e.id,
       degree: t(`education.entries.${e.id}.degree`),
       org: t(`education.entries.${e.id}.org`),
-      years: e.years,
-      yearsShort: yearsOnly(e.years),
+      years: t(`education.entries.${e.id}.years`),
+      yearsShort: t(`education.entries.${e.id}.yearsShort`),
       note: t(`education.entries.${e.id}.note`),
     })),
   );

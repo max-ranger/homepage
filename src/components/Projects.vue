@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { computed } from 'vue';
 import { useContent } from '@/composables/useContent';
 import SectionHead from '@/components/SectionHead.vue';
 
 const { projects } = useContent();
 
-const pad2 = (n: number) => String(n).padStart(2, '0');
+const own = computed(() => projects.value.filter((p) => p.group === 'own'));
+const work = computed(() => projects.value.filter((p) => p.group === 'work'));
 
 const hostnameOf = (url: string): string => {
   try {
@@ -17,26 +19,19 @@ const hostnameOf = (url: string): string => {
 
 <template>
   <section id="projects" class="section">
-    <SectionHead tag="// 02" :title="$t('sections.projects')" />
-    <p class="section-hint">// {{ $t('projects.sub') }}</p>
+    <SectionHead :title="$t('sections.projects')" />
+    <h3 class="section-hint">// {{ $t('projects.groups.own') }}</h3>
     <div class="proj-grid">
-      <component
-        :is="p.url ? 'a' : 'article'"
-        v-for="(p, i) in projects"
+      <article
+        v-for="p in own"
         :key="p.id"
-        :href="p.url ?? null"
-        :target="p.url ? '_blank' : null"
-        :rel="p.url ? 'noopener noreferrer' : null"
-        :tabindex="p.url ? null : 0"
         class="proj"
         :class="{ 'proj-linked': !!p.url }"
         data-reveal
-        data-cursor
       >
         <div class="proj-head">
-          <span class="proj-idx">[{{ pad2(i + 1) }}]</span>
           <span class="proj-title">{{ p.title }}</span>
-          <span class="badge" :class="p.status.toLowerCase()">● {{ p.status }}</span>
+          <span class="badge" :class="p.statusKey">● {{ p.statusLabel }}</span>
         </div>
         <div class="proj-meta">
           <span>{{ p.year }}</span>
@@ -47,27 +42,25 @@ const hostnameOf = (url: string): string => {
         <div class="proj-stack">
           <span v-for="s in p.stack" :key="s">{{ s }}</span>
         </div>
-        <div class="proj-peek">
-          <div class="proj-peek-row">
-            <span class="proj-peek-label">{{ $t('projects.peek.project') }}</span>
-            <span class="proj-peek-title">{{ p.title }}</span>
-          </div>
-          <div class="proj-peek-row">
-            <span class="proj-peek-label">{{ $t('projects.peek.status') }}</span>
-            <span class="badge" :class="p.status.toLowerCase()">● {{ p.status }}</span>
-          </div>
-          <div class="proj-peek-row">
-            <span class="proj-peek-label">{{ $t('projects.peek.stack') }}</span>
-            <span class="proj-peek-stack">{{ p.stack.join(' · ') }}</span>
-          </div>
-          <div v-if="p.url" class="proj-peek-cta">
-            {{ $t('projects.peek.visit', { host: hostnameOf(p.url) }) }}
-          </div>
-          <div v-else class="proj-peek-cta proj-peek-cta-muted">
-            {{ $t('projects.peek.private') }}
-          </div>
+        <a
+          v-if="p.url"
+          class="proj-link"
+          :href="p.url"
+          target="_blank"
+          rel="noopener noreferrer"
+        >{{ hostnameOf(p.url) }} ↗</a>
+      </article>
+    </div>
+    <h3 class="section-hint work-head">// {{ $t('projects.groups.work') }}</h3>
+    <div class="work-list">
+      <article v-for="p in work" :key="p.id" class="work-row" data-reveal>
+        <div class="work-head-row">
+          <h4>{{ p.title }} <span>@ {{ p.org }}</span></h4>
+          <span class="work-year">{{ p.year }}</span>
         </div>
-      </component>
+        <p>{{ p.desc }}</p>
+        <div class="work-stack">{{ p.stack.join(' · ') }}</div>
+      </article>
     </div>
   </section>
 </template>

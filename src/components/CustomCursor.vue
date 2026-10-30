@@ -18,10 +18,8 @@ let y = 0;
 let attachedRoot: HTMLElement | null = null;
 
 const onMove = (e: MouseEvent) => {
-  if (!attachedRoot) return;
-  const r = attachedRoot.getBoundingClientRect();
-  tx = e.clientX - r.left;
-  ty = e.clientY - r.top;
+  tx = e.clientX;
+  ty = e.clientY;
   if (dotRef.value) {
     dotRef.value.style.transform = `translate(${tx}px, ${ty}px) translate(-50%, -50%)`;
   }

@@ -4,36 +4,43 @@ export type Social = {
   url: string;
 };
 
-export type SkillGroupKey = 'primary' | 'secondary' | 'approach';
+export type SkillGroupKey = 'daily' | 'also';
 
 export type Skills = Record<SkillGroupKey, string[]>;
+
+export type PriceUnit = 'hour' | 'day' | 'month';
 
 export type ServicePricingTier = {
   id: string;
   range: string;
+  unit?: PriceUnit;
 };
 
 export type ServiceData = {
   id: string;
+  from: { price: string; unit?: PriceUnit };
   pricing: ServicePricingTier[];
 };
 
+export type ProjectStatus = 'live' | 'testing' | 'building' | 'daily';
+
 export type ProjectData = {
   id: string;
+  group: 'own' | 'work';
   year: string;
-  status: 'Live' | 'Archived' | 'OSS' | string;
   stack: string[];
   url?: string;
+  status?: ProjectStatus;
+  org?: string;
 };
 
 export type ExperienceData = {
   id: string;
-  years: string;
+  current?: boolean;
 };
 
 export type EducationData = {
   id: string;
-  years: string;
 };
 
 export type ProfileData = {
@@ -49,9 +56,8 @@ export type ProfileData = {
 
 export const MAX: ProfileData = {
   name: 'Max Ranger',
-  email: 'max@ranger.co.at',
+  email: 'max@ranger.ac',
   socials: [
-    { label: 'Email', handle: 'max@ranger.co.at', url: 'mailto:max@ranger.co.at' },
     { label: 'GitHub', handle: '@max-ranger', url: 'https://github.com/max-ranger' },
     {
       label: 'LinkedIn',
@@ -60,93 +66,128 @@ export const MAX: ProfileData = {
     },
   ],
   skills: {
-    primary: ['.NET', 'C#', 'Vue', 'TypeScript', 'PostgreSQL', 'Docker', 'Git', 'CI/CD'],
-    secondary: ['React', 'Flutter', 'SQL', 'MySQL', 'MsSQL'],
-    approach: ['Full-stack product work', 'Prototyping', 'Code review', 'Team support'],
+    daily: ['.NET', 'C#', 'Vue', 'TypeScript', 'PostgreSQL', 'Flutter', 'Dart', 'Docker'],
+    also: ['React', 'Hono', 'Zitadel', 'SQL Server', 'MySQL', 'CI/CD'],
   },
   services: [
     {
       id: '01',
+      from: { price: '€75', unit: 'hour' },
       pricing: [
-        { id: 'hourly', range: '€75 – €125 / h' },
-        { id: 'daily', range: '€600 – €1k / d' },
+        { id: 'hourly', range: '€75-125', unit: 'hour' },
+        { id: 'daily', range: '€600-1k', unit: 'day' },
       ],
     },
     {
       id: '02',
+      from: { price: '€600' },
       pricing: [
-        { id: 'spike', range: '€600 – €1k' },
-        { id: 'week', range: '€3k – €5k' },
-        { id: 'twoWeek', range: '€6k – €10k' },
+        { id: 'spike', range: '€600-1k' },
+        { id: 'week', range: '€3k-5k' },
+        { id: 'twoWeek', range: '€6k-10k' },
       ],
     },
     {
       id: '03',
+      from: { price: '€2.5k' },
       pricing: [
-        { id: 'marketing', range: '€2.5k – €10k' },
-        { id: 'singlePurpose', range: '€5k – €15k' },
-        { id: 'saasMvp', range: '€10k – €25k' },
+        { id: 'marketing', range: '€2.5k-10k' },
+        { id: 'singlePurpose', range: '€5k-15k' },
+        { id: 'saasMvp', range: '€10k-25k' },
       ],
     },
     {
       id: '04',
+      from: { price: '€375', unit: 'month' },
       pricing: [
-        { id: 'light', range: '€375 – €625 / month' },
-        { id: 'standard', range: '€750 – €1.25k / month' },
-        { id: 'heavy', range: '€1.5k – €2.5k / month' },
+        { id: 'light', range: '€375-625', unit: 'month' },
+        { id: 'standard', range: '€750-1.25k', unit: 'month' },
+        { id: 'heavy', range: '€1.5k-2.5k', unit: 'month' },
       ],
     },
   ],
   projects: [
     {
-      id: 'p1',
+      id: 'argos',
+      group: 'own',
+      year: '2026',
+      status: 'live',
+      stack: ['.NET', 'Vue', 'Postgres', 'Zitadel'],
+      url: 'https://argos.ranger.ac',
+    },
+    {
+      id: 'whk',
+      group: 'own',
+      year: '2026',
+      status: 'live',
+      stack: ['Vue', 'Hono', 'TypeScript', 'Docker'],
+      url: 'https://welserhundesportklub.at',
+    },
+    {
+      id: 'pegasus',
+      group: 'own',
+      year: '2026',
+      status: 'testing',
+      stack: ['Flutter', 'Dart', 'Supabase'],
+    },
+    {
+      id: 'cerberus',
+      group: 'own',
+      year: '2026',
+      status: 'building',
+      stack: ['.NET', 'Vue', 'Postgres', 'Zitadel'],
+    },
+    {
+      id: 'manticore',
+      group: 'own',
+      year: '2026',
+      status: 'building',
+      stack: ['.NET', 'Vue', 'Postgres'],
+    },
+    {
+      id: 'kitsune',
+      group: 'own',
+      year: '2026',
+      status: 'daily',
+      stack: ['Claude Code', 'Bash'],
+    },
+    {
+      id: 'invoice',
+      group: 'work',
+      org: 'codebeam',
       year: '2025',
-      status: 'Live',
       stack: ['.NET', 'Vue', 'Postgres', 'Docker'],
     },
     {
-      id: 'p2',
-      year: '2025 — 2026',
-      status: 'Live',
+      id: 'energy',
+      group: 'work',
+      org: 'codebeam',
+      year: '2025-2026',
       stack: ['.NET', 'Vue', 'MySQL'],
     },
     {
-      id: 'p3',
+      id: 'marketplace',
+      group: 'work',
+      org: 'codebeam',
       year: '2025',
-      status: 'Live',
       stack: ['.NET', 'Vue', 'Postgres', 'Docker'],
     },
     {
-      id: 'p4',
-      year: '2026',
-      status: 'OSS',
-      stack: ['Vue 3', 'Vite', 'TypeScript', 'CSS'],
-      url: 'https://ranger.ac',
-    },
-    {
-      id: 'p5',
-      year: '2023 — 2024',
-      status: 'Live',
-      stack: ['.NET', 'Blazor', 'MSSQL'],
-    },
-    {
-      id: 'p6',
-      year: '2022 — 2023',
-      status: 'Live',
-      stack: ['.NET', 'Blazor', 'MSSQL'],
+      id: 'timeTracking',
+      group: 'work',
+      org: 'COUNT IT',
+      year: '2023-2024',
+      stack: ['.NET', 'Blazor', 'SQL Server'],
     },
   ],
   experience: [
-    { id: 'codebeam', years: 'Jun 2024 — now' },
-    { id: 'countItFulltime', years: 'Oct 2022 — Apr 2024' },
-    { id: 'countItIntern', years: 'May 2022 — Sep 2022' },
-    { id: 'fhTutor', years: 'Oct 2019 — Jul 2020' },
+    { id: 'cads', current: true },
+    { id: 'codebeam' },
+    { id: 'countItFulltime' },
+    { id: 'countItIntern' },
+    { id: 'fhTutor' },
   ],
-  education: [
-    { id: 'fhHagenberg', years: '2018 — 2022' },
-    { id: 'wuVienna', years: '2015 — 2018' },
-    { id: 'matura', years: '2006 — 2014' },
-  ],
+  education: [{ id: 'fhHagenberg' }, { id: 'wuVienna' }, { id: 'matura' }],
 };
 
 export const ACCENTS = {

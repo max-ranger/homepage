@@ -7,7 +7,7 @@ const { email, socials } = useContent();
 
 <template>
   <section id="contact" class="section contact">
-    <SectionHead tag="// 06" :title="$t('sections.contact')" />
+    <SectionHead :title="$t('sections.contact')" />
     <div class="contact-grid">
       <div class="card" data-reveal>
         <div class="card-head">{{ $t('contact.cardHead') }}</div>

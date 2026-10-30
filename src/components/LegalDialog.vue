@@ -42,9 +42,9 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onKey));
       @click.stop
     >
       <header class="dialog-head">
-        <span class="dialog-num">// legal</span>
+        <span class="dialog-num">//</span>
         <h3 id="legal-title">{{ $t('legal.notice.title') }}</h3>
-        <button class="dialog-close" data-cursor aria-label="close" @click="close">×</button>
+        <button class="dialog-close" data-cursor :aria-label="$t('common.close')" @click="close">×</button>
       </header>
 
       <div class="dialog-body legal-body">
@@ -52,8 +52,6 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onKey));
           <h4>{{ $t('legal.notice.imprintHead') }}</h4>
           <h5 class="legal-sub">{{ $t('legal.notice.imprintIntroHead') }}</h5>
           <p class="legal-text">{{ $t('legal.notice.imprintIntroBody') }}</p>
-          <h5 class="legal-sub">{{ $t('legal.notice.imprintTaxHead') }}</h5>
-          <p class="legal-text">{{ $t('legal.notice.imprintTaxBody') }}</p>
           <p class="legal-note">{{ $t('legal.notice.imprintObligation') }}</p>
           <h5 class="legal-sub">{{ $t('legal.notice.imprintContactHead') }}</h5>
           <p class="legal-text">{{ $t('legal.notice.imprintContactBody') }}</p>
@@ -72,11 +70,6 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onKey));
         <section class="legal-section">
           <h4>{{ $t('legal.notice.liabilityHead') }}</h4>
           <p class="legal-text">{{ $t('legal.notice.liabilityBody') }}</p>
-        </section>
-
-        <section class="legal-section">
-          <h4>{{ $t('legal.notice.odrHead') }}</h4>
-          <p class="legal-text">{{ $t('legal.notice.odrBody') }}</p>
         </section>
 
         <section class="legal-section">

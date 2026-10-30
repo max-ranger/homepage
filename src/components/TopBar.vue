@@ -47,9 +47,9 @@ onBeforeUnmount(() => {
 <template>
   <div class="topbar">
     <div class="topbar-l">
-      <span class="dot dot-red" />
-      <span class="dot dot-amber" />
-      <span class="dot dot-green" />
+      <span class="dot" />
+      <span class="dot" />
+      <span class="dot" />
       <span class="topbar-path">max@dev ~ % <span class="cursor">_</span></span>
     </div>
     <div class="topbar-c">{{ $t('topbar.domain') }}</div>
@@ -74,7 +74,7 @@ onBeforeUnmount(() => {
       <button
         class="iconbtn"
         data-cursor
-        :title="$t('topbar.themeTooltip', { theme })"
+        :title="$t('topbar.themeTooltip', { theme: $t(`common.themes.${theme}`) })"
         @click="$emit('toggleTheme')"
       >
         ◐

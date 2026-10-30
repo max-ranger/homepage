@@ -82,6 +82,7 @@ function activate(container: HTMLElement) {
   const inertElements = setInertSiblings(container);
 
   stack.push({ container, inertElements, lastFocused });
+  document.documentElement.style.overflow = 'hidden';
 
   if (!listenerInstalled) {
     document.addEventListener('keydown', onDocumentKeyDown);
@@ -113,12 +114,16 @@ function deactivate(container: HTMLElement) {
   stack.splice(idx, 1);
 
   if (entry.lastFocused && document.contains(entry.lastFocused)) {
-    entry.lastFocused.focus();
+    // preventScroll: a palette jump is already moving the page.
+    entry.lastFocused.focus({ preventScroll: true });
   }
 
-  if (stack.length === 0 && listenerInstalled) {
-    document.removeEventListener('keydown', onDocumentKeyDown);
-    listenerInstalled = false;
+  if (stack.length === 0) {
+    document.documentElement.style.overflow = '';
+    if (listenerInstalled) {
+      document.removeEventListener('keydown', onDocumentKeyDown);
+      listenerInstalled = false;
+    }
   }
 }
 
