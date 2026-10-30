@@ -1,6 +1,10 @@
 export default {
+  common: {
+    close: 'close',
+    themes: { dark: 'dark', light: 'light' },
+  },
   topbar: {
-    domain: 'ranger.ac — v2026.04',
+    domain: 'ranger.ac',
     paletteTooltip: 'open command palette',
     themeTooltip: 'theme: {theme}',
     languageTooltip: 'language: {lang}',
@@ -18,11 +22,12 @@ export default {
     location: 'Wels, Upper Austria · Remote',
     languages: ['German (native)', 'English (C2)'],
     para1:
-      'Full-stack. .NET & Postgres on the server, Vue or React on the client, and whatever glue the problem needs.',
-    para2:
-      'Open to contract and freelance work. Available immediately, Q2 / Q3 2026 booking.',
-    statusValue: '● open to new projects',
+      'I build web apps from database to screen. .NET and Postgres on the server, Vue in the browser, Flutter on phones.',
+    para2: 'I work full-time at CADS and take on small side projects when I have the time.',
+    now: "Software Developer {'@'} CADS, since Aug 2026",
+    statusValue: '● taking small side projects',
     kv: {
+      now: 'now',
       location: 'location',
       status: 'status',
       stack: 'stack',
@@ -33,7 +38,7 @@ export default {
   },
   about: {
     cardReadme: 'readme.md',
-    cardPortrait: 'me.png',
+    cardPortrait: 'me.webp',
     cardStack: 'stack.json',
     headings: {
       title: '# Max',
@@ -41,100 +46,119 @@ export default {
       goodAt: "## What I'm good at",
     },
     intro:
-      'Software engineer based in Upper Austria. Open to contract and freelance work. Available immediately, Q2 / Q3 2026 booking.',
+      'Software developer from Upper Austria. I work full-time at CADS. In my free time I build my own products and take on small side projects.',
     howIWork:
-      "Short kickoff call to scope the work. Written brief before any code, so we're aligned on what success looks like. Frequent small commits, demo-able preview deploys when the build calls for it. End-of-engagement hand-off doc with next steps — clients should be able to keep moving without me.",
+      'We start with a short call. Before I write code, I write down what we agreed. You see small, regular commits, and a preview when there is something to show. At the end you get a short document, so you can carry on without me.',
     goodAt: [
-      "Funnelling fuzzy ideas — mine, my team's, my clients' — into specs that survive contact with code.",
-      'Designing architecture that holds up when requirements shift mid-build, without over-engineering for hypothetical futures.',
-      "Explaining what's actually going on to people who don't write code, to the degree the topic allows.",
+      'Turning a vague idea into a spec someone can build from.',
+      "Designing systems that survive changing requirements, without building for problems you don't have.",
+      "Explaining technical things to people who don't write code.",
     ],
     skillGroups: {
-      primary: 'primary',
-      secondary: 'secondary',
-      approach: 'approach',
+      daily: 'daily',
+      also: 'also',
     },
   },
   projects: {
-    sub: 'selection',
-    peek: {
-      project: '// project',
-      status: '// status',
-      stack: '// stack',
-      visit: 'visit {host} →',
-      private: '// private — no public URL',
+    groups: {
+      own: 'my own',
+      work: 'at work',
+    },
+    status: {
+      live: 'Live',
+      testing: 'In testing',
+      building: 'In progress',
+      daily: 'Daily use',
     },
     entries: {
-      p1: {
+      argos: {
+        title: 'Argos',
+        kind: 'Web app',
+        desc: 'Draw Rally Obedience courses on a 30 by 20 m field. Numbering and sign holders follow the ÖKV and FCI rulebooks, and the course is checked as you draw.',
+      },
+      whk: {
+        title: 'WHK website',
+        kind: 'Website',
+        desc: 'Website of the Welser Hundesportklub, the dog sport club I am active in. People sign up for courses online and get the payment details by mail.',
+      },
+      pegasus: {
+        title: 'Pegasus',
+        kind: 'Mobile app',
+        desc: 'App for show-jumping riders to record and review tournament courses. The course builder works fully offline.',
+      },
+      cerberus: {
+        title: 'Cerberus',
+        kind: 'Web app',
+        desc: 'Club software for the Welser Hundesportklub. Members, courses and participants move out of spreadsheets into one place.',
+      },
+      manticore: {
+        title: 'Manticore',
+        kind: 'Web app',
+        desc: 'Service reports, clients, contracts and time entries for installer and maintenance companies. Documents come in through an LLM import that a person reviews.',
+      },
+      kitsune: {
+        title: 'Kitsune',
+        kind: 'Developer tool',
+        desc: 'My setup for Claude Code. One conversation shapes a change, then agents build it, review it and open a pull request.',
+      },
+      invoice: {
         title: 'Invoice extraction SaaS',
-        kind: 'Web app · SaaS',
-        desc: 'Reads inboxes, pulls attached and inline invoices, runs OCR + classification, and lands them in a structured archive ready for accounting hand-off. Built and led at codebeam.',
+        desc: 'Reads inboxes, finds invoices, runs OCR and files them for accounting. I built and led it.',
       },
-      p2: {
+      energy: {
         title: 'Energy insights platform',
-        kind: 'Web app · SaaS',
-        desc: 'Energy-management and analytics SaaS — metering ingest, dashboards, reporting. Long-running platform work at codebeam.',
+        desc: 'Metering data, dashboards and reports for energy management.',
       },
-      p3: {
+      marketplace: {
         title: 'Sales-talent marketplace',
-        kind: 'Web app · Marketplace',
-        desc: 'Marketplace for booking sales people on fixed-term engagements — buyer flows, contracts, billing. Delivered at codebeam.',
+        desc: 'Book sales people for a fixed term, with buyer flows, contracts and billing.',
       },
-      p4: {
-        title: "max{'@'}ranger.co.at",
-        kind: 'Website · Personal',
-        desc: 'This site. Single-page portfolio with auto-switching dark/light palette, command palette, custom cursor, and a typed content layer.',
-      },
-      p5: {
+      timeTracking: {
         title: 'Time-tracking suite',
-        kind: 'Web app · Internal HR',
-        desc: 'Enterprise time-tracking with Austrian collective agreement rules, time-pots, and balanced accounting across complex shift patterns. Built at COUNT IT.',
-      },
-      p6: {
-        title: 'Travel-expense tool',
-        kind: 'Web app · Internal tool',
-        desc: 'Travel-expense reporting — receipt capture, approvals, payroll export. Built at COUNT IT.',
+        desc: 'Time tracking under Austrian collective agreements, across complex shift patterns.',
       },
     },
   },
   services: {
-    flowHint:
-      '// start anywhere, chain when it makes sense — prior fees credit toward the next step',
+    hint: '// side projects only. start anywhere. fees credit toward the next step.',
+    from: 'from {price}',
+    viewDetails: '{title}: view details',
+    units: {
+      hour: 'h',
+      day: 'd',
+      month: 'month',
+    },
     entries: {
       '01': {
         title: 'Consulting & reviews',
-        flowLabel: 'consult',
-        desc: 'Tech advice, architecture & code review, and concept-to-spec work — an independent set of eyes when you need one.',
-        price: 'hourly / daily',
+        desc: 'Tech advice, architecture and code reviews, and turning an idea into a spec. A second opinion when you need one.',
         details:
-          'Independent perspective for teams that need one. Tech-stack picks when you are not sure what to build with, architecture review with written follow-ups, code or PR review on a tricky change, or concept-to-spec sessions to map a fuzzy idea into something a developer can actually quote on. Not team-augmentation — I keep these engagements scoped to advisory and review work that fits alongside a day job.',
+          'A second opinion for teams that want one. I help pick a tech stack when you are not sure what to build with. I review architecture and write up what I find. I review code or a pull request on a tricky change. I also work with you to turn a vague idea into a spec a developer can quote on. I do not join your team as extra capacity. This work stays advisory, so it fits next to my day job.',
         included: [
-          'Tech-stack & framework recommendations',
+          'Tech stack and framework recommendations',
           'Architecture review with written notes',
-          'Code or PR review on existing repos',
-          'Concept-to-spec mapping for new builds',
-          'Follow-up doc with concrete next steps',
+          'Code or pull request review on existing repos',
+          'Turning a concept into a spec for new builds',
+          'Follow-up document with concrete next steps',
         ],
         pricing: {
-          hourly: 'Hourly — review / consulting',
-          daily: 'Daily rate — full days',
+          hourly: 'Hourly, review or consulting',
+          daily: 'Daily rate, full days',
         },
-        delivery: 'Slots typically booked 1 – 2 weeks ahead',
+        delivery: 'Slots are usually booked 1 to 2 weeks ahead',
         continuation:
-          'If a consulting engagement leads into a prototype or build, hours spent on concept-to-spec work that maps directly to that project credit toward the follow-up.',
+          'If consulting leads to a prototype or build, hours spent on the spec for that project credit toward it.',
       },
       '02': {
         title: 'Prototyping',
-        flowLabel: 'prototype',
-        desc: 'Working draft code in days, not months. Realistic enough to validate, scoped to throw away — code shipped to your repo, no hosting included.',
-        price: 'fixed-scope',
+        desc: 'Working draft code in days. Good enough to test an idea, cheap enough to throw away. No hosting included.',
         details:
-          "A working, demo-able product slice in days, not months. Realistic enough to put in front of users, investors, or your own team — scoped tight enough to throw away when you learn something new. The deliverable is working code in your repo (or a zip if you don't have one yet), not a hosted production build — that's a separate engagement.",
+          "A working slice of a product that you can demo, in days instead of months. It is real enough to show to users, investors or your own team. It is small enough to throw away when you learn something new. You get working code in your repo, or a zip if you don't have one yet. A hosted production build is a separate job.",
         included: [
-          'Wireframe + happy-path UX pass',
-          'Working draft code — frontend + optional stub backend',
+          'Wireframe and a UX pass for the happy path',
+          'Working draft code: frontend, plus a stub backend if needed',
           'Mock or live data, depending on scope',
-          'Source hand-off + Loom walkthrough',
+          'Source code and a Loom walkthrough',
           'No production deploy or hosting setup',
         ],
         pricing: {
@@ -142,79 +166,90 @@ export default {
           week: '1-week prototype',
           twoWeek: '2-week prototype',
         },
-        delivery: '1 day – 2 weeks (calendar)',
+        delivery: '1 day to 2 weeks (calendar time)',
         continuation:
-          'If you continue with a small build afterwards, the prototyping fee credits toward the project — no double-charging for the same work.',
+          "If a small build follows, the prototyping fee credits toward it. You don't pay twice for the same work.",
       },
       '03': {
-        title: 'Small webapps & websites',
-        flowLabel: 'build',
-        desc: 'Full-stack builds for marketing sites and small applications — from idea to shipped product.',
-        price: 'project-based',
+        title: 'Small web apps & websites',
+        desc: 'Marketing sites and small apps, from first idea to live product.',
         details:
-          "Most builds start with a conversation about what you actually need. I help refine the idea, shape it into a draft or wireframe, build a working prototype, and take it through to a finished product — backend and frontend, deploy, hand-off. The kind of project that doesn't fall over the moment I leave.",
+          "Most builds start with a talk about what you actually need. I help refine the idea and shape it into a draft or wireframe. Then I build a working prototype and take it to a finished product, with backend, frontend, deploy and handover. It doesn't fall over the moment I leave.",
         included: [
-          'Concept refinement & wireframing',
-          'Database schema & migrations',
-          'API in .NET (occasionally Node / TypeScript)',
+          'Refining the concept, and wireframes',
+          'Database schema and migrations',
+          'API in .NET, occasionally Node or TypeScript',
           'Frontend in Vue or React',
-          'CI/CD pipeline + Dockerized deploy',
-          'Hand-off docs & on-call window',
+          'CI/CD pipeline and Docker deploy',
+          'Handover docs and an on-call window',
         ],
         pricing: {
-          marketing: 'Marketing site (1–10 pages)',
+          marketing: 'Marketing site (1 to 10 pages)',
           singlePurpose: 'Single-purpose web app',
           saasMvp: 'Small SaaS MVP (multi-user)',
         },
-        delivery: 'Side-project pace — typically 4 – 16 weeks from kickoff',
+        delivery: 'Side project pace, usually 4 to 16 weeks from kickoff',
         continuation:
-          'Builds usually start with a paid prototyping phase. If we already did a prototype together, that fee credits toward the build — no double-charging for work already done.',
+          "Builds usually start with a paid prototyping phase. If we already built a prototype together, that fee credits toward the build. You don't pay twice for work already done.",
       },
       '04': {
-        title: 'Maintenance & retainer',
-        flowLabel: 'maintain',
-        desc: 'Ongoing code-side support for an existing app or site — bug fixes, dependency updates, small features, deploys.',
-        price: 'monthly',
+        title: 'Maintenance',
+        desc: 'Bug fixes, dependency updates, small features and deploys for an app you already run.',
         details:
-          'For teams or solo founders who shipped something and need a steady hand keeping it healthy. Predictable monthly hours covering everything on the code side: maintaining the repo, fixing bugs, rolling out releases, small UI adjustments, dependency upgrades, and modest feature work within the hour budget. Code-side only — I will not be answering customer emails about refunds, pricing, or product questions on your behalf.',
+          "For teams or solo founders who shipped something and want it kept healthy. You get predictable monthly hours for everything on the code side. That means the repo, bug fixes, releases, small UI changes, dependency upgrades and modest features within the hour budget. It is code only. I don't answer customer mails about refunds, pricing or product questions for you.",
         included: [
-          'Repo & dependency maintenance',
-          'Bug fixes & UI adjustments',
-          'Deploys & release roll-outs',
-          'Small features within hour budget',
-          'Monitoring / log review on request',
-          'Code-side only — no customer support',
+          'Repo and dependency maintenance',
+          'Bug fixes and UI adjustments',
+          'Deploys and releases',
+          'Small features within the hour budget',
+          'Monitoring or log review on request',
+          'Code only, no customer support',
         ],
         pricing: {
-          light: 'Light — 5 h / month',
-          standard: 'Standard — 10 h / month',
-          heavy: 'Heavy — 20 h / month',
+          light: 'Light, 5 h / month',
+          standard: 'Standard, 10 h / month',
+          heavy: 'Heavy, 20 h / month',
         },
-        delivery: 'Rolling monthly — month-to-month, no lock-in',
+        delivery: 'Rolling monthly, month to month, no lock-in',
       },
     },
   },
   experience: {
     entries: {
+      cads: {
+        role: 'Software Developer',
+        org: 'CADS',
+        years: 'Aug 2026 to now',
+        yearsShort: '2026 to now',
+        note: 'Full-time.',
+      },
       codebeam: {
         role: 'Software Developer',
         org: 'codebeam',
-        note: 'Full-time, hybrid in Wels. Full-stack product work across the codebeam SaaS portfolio.',
+        years: 'Jun 2024 to Jun 2026',
+        yearsShort: '2024 to 2026',
+        note: 'Full-time, hybrid in Wels. Full-stack work on the codebeam SaaS products.',
       },
       countItFulltime: {
         role: 'Software Developer',
         org: 'COUNT IT Group',
-        note: 'Full-time in Hagenberg. Blazor / .NET enterprise builds for clients — long-running time-tracking and expense systems.',
+        years: 'Oct 2022 to Apr 2024',
+        yearsShort: '2022 to 2024',
+        note: 'Full-time in Hagenberg. Blazor and .NET systems for clients, mostly time tracking and expenses.',
       },
       countItIntern: {
         role: 'Software Developer (internship)',
         org: 'COUNT IT Group',
-        note: 'Five-month internship. Blazor & software architecture focus.',
+        years: 'May 2022 to Sep 2022',
+        yearsShort: '2022',
+        note: 'Five months, focused on Blazor and software architecture.',
       },
       fhTutor: {
         role: 'Tutor, Software Development',
         org: 'FH Hagenberg',
-        note: 'Tutored software architecture fundamentals to undergraduates.',
+        years: 'Oct 2019 to Jul 2020',
+        yearsShort: '2019 to 2020',
+        note: 'Taught software architecture basics to undergraduates.',
       },
     },
   },
@@ -223,16 +258,22 @@ export default {
       fhHagenberg: {
         degree: 'BSc Software Engineering',
         org: 'FH Hagenberg',
-        note: 'University of Applied Sciences Upper Austria, Campus Hagenberg.',
+        years: '2018 to 2022',
+        yearsShort: '2018 to 2022',
+        note: 'University of Applied Sciences Upper Austria. My thesis was a code editor plugin for Moodle.',
       },
       wuVienna: {
-        degree: 'Bachelor (transferred out)',
+        degree: 'Bachelor, not finished',
         org: 'WU Vienna',
-        note: 'Business Informatics track at the Vienna University of Economics and Business — tried it, decided software was the better fit, transferred to FH Hagenberg.',
+        years: '2015 to 2018',
+        yearsShort: '2015 to 2018',
+        note: 'Business Informatics. I tried it, decided software was the better fit and moved to Hagenberg.',
       },
       matura: {
         degree: 'Matura',
         org: 'BG/BRG Brucknerstrasse',
+        years: '2006 to 2014',
+        yearsShort: '2006 to 2014',
         note: 'Wels, Austria.',
       },
     },
@@ -240,7 +281,7 @@ export default {
   contact: {
     cardHead: 'message.txt',
     big: 'Building something?',
-    sub: 'Two-sentence pitch + timeline gets the fastest reply.',
+    sub: 'Two sentences and a rough timeline get the fastest reply.',
     sendCta: 'send →',
   },
   palette: {
@@ -267,13 +308,13 @@ export default {
     pricing: '// pricing',
     delivery: 'delivery',
     continuation: '// continuation',
-    rangesNote: 'Ranges are starting points — final scope and quote always agreed in writing.',
+    rangesNote: 'Ranges are starting points. Final scope and quote are always agreed in writing.',
     closeHint: 'to close',
     cta: 'start a conversation →',
-    inquirySubject: '[{id}] {title} — inquiry',
+    inquirySubject: '[{id}] {title}: inquiry',
   },
   status: {
-    builtWith: 'built with vue + vite',
+    shippedWith: 'shipped with zero',
     copyright: '© {year} Maximilian Ranger',
     copyrightSuffix: 'All rights reserved.',
     legalLink: 'legal notice',
@@ -288,31 +329,26 @@ export default {
       imprintIntroHead: 'Information according to law',
       imprintIntroBody:
         'Maximilian Ranger\nSoftware development\nCharwatstraße 10a\n4600 Wels, Austria',
-      imprintTaxHead: 'Tax & Identification',
-      imprintTaxBody: 'VAT-ID: [PLACEHOLDER]',
       imprintObligation:
         'Information obligation according to §5 E-Commerce Act, §14 Corporate Code, and disclosure obligation according to §25 Media Act.',
       imprintContactHead: 'Contact',
-      imprintContactBody: "max{'@'}ranger.co.at",
+      imprintContactBody: "max{'@'}ranger.ac",
 
       copyrightHead: '// copyright notice',
       copyrightBody:
-        "All content on this website — including text, images, graphics, and designs — is protected by copyright and is the property of Maximilian Ranger unless otherwise indicated. Any use, reproduction, or distribution without express written permission is prohibited. For inquiries regarding the use of content, please contact: max{'@'}ranger.co.at.",
+        "All content on this website, including text, images, graphics and designs, is protected by copyright and is the property of Maximilian Ranger unless otherwise indicated. Any use, reproduction or distribution without express written permission is prohibited. For inquiries regarding the use of content, please contact: max{'@'}ranger.ac.",
 
       privacyHead: '// privacy & data protection',
       privacyBody:
-        "This site is largely static. If you reach out via the email link, your message and email address are processed only to handle the inquiry (Art. 6(1)(b) GDPR). The hosting provider may briefly log technical request data (IP, time, user agent) for security. Web fonts are loaded from Google Fonts, which transfers your IP to Google (Art. 6(1)(f) GDPR). Theme and language preferences are stored in your browser's localStorage and never transmitted. You have the right to access, rectification, erasure, and complaint to the Datenschutzbehörde Österreich (https://www.dsb.gv.at).",
+        "This site is largely static. If you reach out via the email link, your message and email address are processed only to handle the inquiry (Art. 6(1)(b) GDPR). The hosting provider may briefly log technical request data (IP, time, user agent) for security. Theme and language preferences are stored in your browser's localStorage and never transmitted. You have the right to access, rectification, erasure, and complaint to the Datenschutzbehörde Österreich (https://www.dsb.gv.at).",
 
       liabilityHead: '// liability for external links',
       liabilityBody:
-        'External links are checked at the time of inclusion. I am not responsible for the current or future content of linked pages — the respective operators are.',
-
-      odrHead: '// online dispute resolution',
-      odrBody: 'European Commission ODR platform: https://ec.europa.eu/odr',
+        'External links are checked at the time of inclusion. I am not responsible for the current or future content of linked pages. The respective operators are.',
 
       attributionHead: '// attributions',
       attributionZero:
-        'The Zero logo is a brand mark of shipzero, used here with appreciation. This site is shipped with Zero —',
+        'The Zero logo is a brand mark of shipzero, used here with appreciation. This site is shipped with Zero:',
     },
   },
 };

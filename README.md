@@ -18,10 +18,11 @@ pnpm og:render    # rasterize public/og-image.svg → og-image.png
 ## Edit content
 
 - **Static / non-translatable shape** — ids, urls, email, technology names,
-  pricing ranges, year strings — lives in [`src/content.ts`](./src/content.ts)
+  pricing ranges, project years — lives in [`src/content.ts`](./src/content.ts)
   on the `MAX` export.
 - **All translatable text** — section titles, hero copy, service / project /
-  experience / education prose, palette commands, legal text — lives in
+  experience / education prose, date ranges, price units, status labels,
+  palette commands, legal text — lives in
   [`src/i18n/en.ts`](./src/i18n/en.ts) and [`src/i18n/de.ts`](./src/i18n/de.ts).
   English is the source-of-truth fallback; German keys override per-locale.
 
@@ -34,7 +35,7 @@ shape regardless of locale.
 src/
 ├── App.vue
 ├── main.ts                          ← creates app, installs i18n, mounts
-├── style.css                        ← all styling (~1200 lines, hand-written)
+├── style.css                        ← all styling (hand-written)
 ├── content.ts                       ← typed static data
 ├── i18n/
 │   ├── index.ts                     ← createI18n, locale type
@@ -49,19 +50,19 @@ src/
 │   └── useFocusTrap.ts              ← shared trap (stack-based, inert-aware)
 └── components/
     ├── Shell.vue                    ← root, wires composables and sections
-    ├── TopBar.vue                   ← window dots, local clock, ⌘K, EN/DE, theme
+    ├── TopBar.vue                   ← neutral window dots, local clock, ⌘K, EN/DE, theme
     ├── Hero.vue                     ← whoami typing animation, name, kv block
     ├── HeroRipple.vue               ← mouse-tracking dot grid
-    ├── About.vue                    ← readme.md + stack.json cards
-    ├── Projects.vue                 ← 6 project cards, hover peek with optional URL
-    ├── Services.vue                 ← engagement-flow row + 4 service cards
+    ├── About.vue                    ← readme.md, with portrait and stack.json in a side column
+    ├── Projects.vue                 ← own project cards, employer work as plain rows
+    ├── Services.vue                 ← 4 service cards with a starting price
     ├── ServiceDialog.vue            ← modal opened from a service card
     ├── Experience.vue               ← continuous-spine timeline of roles
     ├── Education.vue                ← continuous-spine timeline of studies
     ├── Contact.vue                  ← mailto + social links
-    ├── StatusFooter.vue             ← bottom status bar + imprint / privacy / source links
+    ├── StatusFooter.vue             ← bottom bar with zero link, legal notice, source and copyright
     ├── LegalDialog.vue              ← modal that renders Impressum or Datenschutzerklärung
-    ├── SectionHead.vue              ← `// 0X title` heading row
+    ├── SectionHead.vue              ← `// title` heading row
     ├── Palette.vue                  ← ⌘K command palette modal
     └── CustomCursor.vue             ← dot + trailing ring (hover-capable devices only)
 ```
@@ -72,13 +73,22 @@ The ◐ button toggles **dark ⇄ light**. First-load defaults to the user's
 `prefers-color-scheme`; once toggled, the choice is stored in `localStorage`
 under `homepage-theme-mode`. An inline script in [`index.html`](./index.html)
 sets the page background pre-Vue-mount to avoid a dark flash for returning
-light-mode users.
+light-mode users. After mount, `useTheme` keeps the document background on the
+active theme, so overscroll matches.
+
+The page scrolls on the document. The top bar is fixed, and open modals lock
+the document scroll through `useFocusTrap`.
+
+## Fonts
+
+Inter and JetBrains Mono come from the `@fontsource-variable` packages and are
+bundled with the site. Nothing is loaded from another host.
 
 Palettes live as CSS custom properties on `.root` / `.root[data-theme="light"]`
 in [`src/style.css`](./src/style.css):
 
 - **Dark** — `#0b0c0a` bg, `#e5b94a` gold, `#3a7a6b` forest, `#4ba89a` teal
-- **Light** — `#f5f1e6` bg, `#8a6e1f` gold, `#2f5a4c` forest, `#3d6657` teal
+- **Light** — `#f5f1e6` bg, `#81671d` gold, `#2f5a4c` forest, `#3d6657` teal
   (darker accents than dark mode to pass WCAG AA against cream)
 
 ## Languages
@@ -113,7 +123,8 @@ German keys fall back to English automatically.
 
 The OG image used by LinkedIn / iMessage / Slack / Discord / WhatsApp / etc.
 is sourced from [`public/og-image.svg`](./public/og-image.svg) and rasterized
-to `public/og-image.png` via:
+to `public/og-image.png` via the command below, which also renders
+`public/favicon.svg` to `public/apple-touch-icon.png`:
 
 ```sh
 pnpm og:render
@@ -171,8 +182,6 @@ flag to fall back to Zero's default.
 
 ## Legal
 
-Imprint and privacy-policy text live in the i18n message bundles
-(`legal.impressum.*` and `legal.privacy.*`) and render via `LegalDialog.vue`
-when triggered from the footer or palette. There are `[PLACEHOLDER]` markers
-in both `en.ts` and `de.ts` for site-owner-specific data (street address,
-GISA-Zahl, professional title) that need to be filled in before launch.
+Imprint and privacy text live in the i18n message bundles (`legal.notice.*`)
+and render via `LegalDialog.vue` when triggered from the footer or palette.
+The privacy text names what the site processes, so change the two together.

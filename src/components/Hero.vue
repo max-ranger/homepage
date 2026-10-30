@@ -49,12 +49,14 @@ onBeforeUnmount(() => {
       </div>
 
       <dl class="hero-kv">
+        <dt>{{ $t('hero.kv.now') }}</dt>
+        <dd>{{ $t('hero.now') }}</dd>
         <dt>{{ $t('hero.kv.location') }}</dt>
         <dd>{{ location }}</dd>
         <dt>{{ $t('hero.kv.status') }}</dt>
         <dd><span class="badge live">{{ $t('hero.statusValue') }}</span></dd>
         <dt>{{ $t('hero.kv.stack') }}</dt>
-        <dd>{{ skills.primary.join(' · ') }}</dd>
+        <dd>{{ skills.daily.join(' · ') }}</dd>
         <dt>{{ $t('hero.kv.languages') }}</dt>
         <dd>{{ languages.join(' · ') }}</dd>
         <dt>{{ $t('hero.kv.reach') }}</dt>

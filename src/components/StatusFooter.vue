@@ -9,9 +9,6 @@ defineEmits<{
 
 <template>
   <footer class="statusbar">
-    <span class="statusbar-item"><span class="dot-inline" />ready</span>
-    <span class="statusbar-item statusbar-hide-mobile">utf-8</span>
-    <span class="statusbar-item statusbar-hide-mobile">vue</span>
     <a
       class="statusbar-link statusbar-shipzero"
       data-cursor
@@ -19,7 +16,7 @@ defineEmits<{
       target="_blank"
       rel="noopener noreferrer"
     >
-      <img src="/zero-favicon.png" alt="" class="status-logo" />shipped with zero ↗
+      <img src="/zero-favicon.png" alt="" class="status-logo" />{{ $t('status.shippedWith') }} ↗
     </a>
     <span class="statusbar-sp" />
     <button class="statusbar-link" data-cursor @click="$emit('openLegal')">
@@ -38,6 +35,5 @@ defineEmits<{
       >{{ $t('status.copyright', { year })
       }}<span class="statusbar-copyright-suffix"> {{ $t('status.copyrightSuffix') }}</span></span
     >
-    <span class="statusbar-item statusbar-hide-mobile">ln 99, col 1</span>
   </footer>
 </template>

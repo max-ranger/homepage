@@ -13,14 +13,13 @@
 
 ## Data flow
 
-Nothing is fetched at runtime. Locale and theme come from `localStorage`, then from defaults. All content ships in the bundle.
+Nothing is fetched from another host at runtime. Fonts are bundled from the fontsource packages. Locale and theme come from `localStorage`, then from defaults. All content ships in the bundle.
 
 ## External systems
 
-- Google Fonts, loaded from `index.html`. This is named in the privacy text, so the two must change together.
 - GHCR receives the image from `.github/workflows/docker.yml`.
 
 ## Known trade-offs
 
 - There is no test suite. `pnpm typecheck` and `pnpm build` are the only automated signals, so content changes are checked by running the page.
-- The Open Graph image is a rendered PNG. After editing `public/og-image.svg`, run `pnpm og:render` and commit both files.
+- The Open Graph image is a rendered PNG. After editing `public/og-image.svg` or `public/favicon.svg`, run `pnpm og:render` and commit the source and the PNG.

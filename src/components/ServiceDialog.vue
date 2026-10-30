@@ -52,9 +52,9 @@ const mailtoFor = (s: LocalizedService): string => {
       @click.stop
     >
       <header class="dialog-head">
-        <span class="dialog-num">// {{ service.id }}</span>
+        <span class="dialog-num">//</span>
         <h3 :id="`dialog-title-${service.id}`">{{ service.title }}</h3>
-        <button class="dialog-close" data-cursor aria-label="close" @click="close">×</button>
+        <button class="dialog-close" data-cursor :aria-label="$t('common.close')" @click="close">×</button>
       </header>
 
       <div class="dialog-body">

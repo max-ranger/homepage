@@ -4,6 +4,8 @@ export type ThemeMode = 'dark' | 'light';
 
 const STORAGE_KEY = 'homepage-theme-mode';
 
+const GROUND: Record<ThemeMode, string> = { dark: '#0b0c0a', light: '#f5f1e6' };
+
 const isBrowser = typeof window !== 'undefined';
 
 function readStoredMode(): ThemeMode | null {
@@ -43,6 +45,12 @@ export function useTheme(rootRef: Ref<HTMLElement | null>) {
     const el = rootRef.value;
     if (!el) return;
     el.setAttribute('data-theme', theme.value);
+  });
+
+  // Overscroll shows the document background, so it follows the theme.
+  watchEffect(() => {
+    if (!isBrowser) return;
+    document.documentElement.style.backgroundColor = GROUND[theme.value];
   });
 
   watchEffect(() => {

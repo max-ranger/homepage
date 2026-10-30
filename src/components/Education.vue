@@ -7,7 +7,7 @@ const { education } = useContent();
 
 <template>
   <section id="education" class="section">
-    <SectionHead tag="// 05" :title="$t('sections.education')" />
+    <SectionHead :title="$t('sections.education')" />
     <div class="exp exp-continuous">
       <div v-for="e in education" :key="e.id" class="exp-row" data-reveal>
         <span class="exp-years">

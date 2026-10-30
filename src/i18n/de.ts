@@ -1,8 +1,12 @@
 export default {
+  common: {
+    close: 'schließen',
+    themes: { dark: 'dunkel', light: 'hell' },
+  },
   topbar: {
-    domain: 'ranger.ac — v2026.04',
+    domain: 'ranger.ac',
     paletteTooltip: 'Befehlspalette öffnen',
-    themeTooltip: 'Thema: {theme}',
+    themeTooltip: 'Farbschema: {theme}',
     languageTooltip: 'Sprache: {lang}',
   },
   sections: {
@@ -18,11 +22,12 @@ export default {
     location: 'Wels, Oberösterreich · Remote',
     languages: ['Deutsch (Muttersprache)', 'Englisch (C2)'],
     para1:
-      'Full-Stack. .NET & Postgres am Server, Vue oder React am Client, und der Klebstoff, den das Problem braucht.',
-    para2:
-      'Offen für Auftrags- und Freelance-Projekte. Sofort verfügbar, Buchungen für Q2 / Q3 2026.',
-    statusValue: '● offen für neue Projekte',
+      'Ich baue Web-Apps von der Datenbank bis zum Bildschirm. .NET und Postgres am Server, Vue im Browser, Flutter am Handy.',
+    para2: 'Ich arbeite Vollzeit bei CADS und übernehme kleine Nebenprojekte, wenn ich Zeit habe.',
+    now: "Softwareentwickler {'@'} CADS, seit Aug 2026",
+    statusValue: '● nehme kleine Nebenprojekte an',
     kv: {
+      now: 'aktuell',
       location: 'standort',
       status: 'status',
       stack: 'stack',
@@ -33,7 +38,7 @@ export default {
   },
   about: {
     cardReadme: 'readme.md',
-    cardPortrait: 'me.png',
+    cardPortrait: 'me.webp',
     cardStack: 'stack.json',
     headings: {
       title: '# Max',
@@ -41,180 +46,210 @@ export default {
       goodAt: '## Worin ich gut bin',
     },
     intro:
-      'Softwareentwickler aus Oberösterreich. Offen für Auftrags- und Freelance-Projekte. Sofort verfügbar, Buchungen für Q2 / Q3 2026.',
+      'Softwareentwickler aus Oberösterreich. Ich arbeite Vollzeit bei CADS. In meiner Freizeit entwickle ich eigene Produkte und übernehme kleine Nebenprojekte.',
     howIWork:
-      'Kurzes Kickoff-Gespräch zur Scope-Klärung. Schriftliches Briefing, bevor Code geschrieben wird — damit wir einig sind, wie Erfolg aussieht. Häufige kleine Commits, demo-fähige Preview-Deploys, wenn das Projekt es verlangt. Abschluss-Dokument mit nächsten Schritten — Kund:innen sollen auch ohne mich weiterarbeiten können.',
+      'Wir beginnen mit einem kurzen Gespräch. Bevor ich Code schreibe, halte ich schriftlich fest, was wir vereinbart haben. Sie sehen kleine, regelmäßige Commits und eine Vorschau, sobald es etwas zu zeigen gibt. Am Ende bekommen Sie ein kurzes Dokument, damit Sie ohne mich weitermachen können.',
     goodAt: [
-      'Unscharfe Ideen — meine, die meines Teams, die meiner Kunden — in Spezifikationen kanalisieren, die den Sprung in den Code überleben.',
-      'Architektur entwerfen, die hält, wenn sich Anforderungen mitten im Bauprozess ändern — ohne für hypothetische Zukünfte vorzeitig zu komplizieren.',
-      'Erklären, was wirklich passiert, an Leute, die keinen Code schreiben — soweit das Thema es zulässt.',
+      'Aus einer vagen Idee eine Spezifikation machen, nach der jemand bauen kann.',
+      'Systeme entwerfen, die geänderte Anforderungen aushalten, ohne für Probleme zu bauen, die Sie nicht haben.',
+      'Technisches für Menschen erklären, die keinen Code schreiben.',
     ],
     skillGroups: {
-      primary: 'haupt-stack',
-      secondary: 'auch im einsatz',
-      approach: 'arbeitsweise',
+      daily: 'täglich',
+      also: 'auch im einsatz',
     },
   },
   projects: {
-    sub: 'auswahl',
-    peek: {
-      project: '// projekt',
-      status: '// status',
-      stack: '// stack',
-      visit: '{host} öffnen →',
-      private: '// intern — keine öffentliche URL',
+    groups: {
+      own: 'meine eigenen',
+      work: 'beruflich',
+    },
+    status: {
+      live: 'Live',
+      testing: 'Im Test',
+      building: 'In Arbeit',
+      daily: 'Täglich im Einsatz',
     },
     entries: {
-      p1: {
-        title: 'Rechnungs-Extraktion (SaaS)',
-        kind: 'Web-App · SaaS',
-        desc: 'Liest Postfächer aus, holt eingebettete und angehängte Rechnungen, jagt sie durch OCR + Kategorisierung und legt sie strukturiert für die Buchhaltung ab. Bei codebeam aufgebaut und geleitet.',
+      argos: {
+        title: 'Argos',
+        kind: 'Web-App',
+        desc: 'Rally-Obedience-Parcours auf einem Feld von 30 mal 20 m zeichnen. Nummerierung und Schilderhalter folgen den Regelwerken von ÖKV und FCI, und der Parcours wird schon beim Zeichnen geprüft.',
       },
-      p2: {
-        title: 'Energie-Insights-Plattform',
-        kind: 'Web-App · SaaS',
-        desc: 'Energiemanagement- und Analytics-SaaS — Zählerdaten, Dashboards, Reporting. Lange laufende Plattformarbeit bei codebeam.',
+      whk: {
+        title: 'WHK-Website',
+        kind: 'Website',
+        desc: 'Website des Welser Hundesportklubs, des Hundesportvereins, in dem ich aktiv bin. Kurse lassen sich online buchen, die Zahlungsdaten kommen per Mail.',
       },
-      p3: {
-        title: 'Sales-Talente-Marktplatz',
-        kind: 'Web-App · Marktplatz',
-        desc: 'Marktplatz, um Vertriebsleute auf Zeit zu buchen — Käuferflows, Verträge, Abrechnung. Bei codebeam ausgeliefert.',
+      pegasus: {
+        title: 'Pegasus',
+        kind: 'Mobile App',
+        desc: 'App für Springreiter, um Turnierparcours festzuhalten und durchzugehen. Der Parcoursbauer funktioniert komplett offline.',
       },
-      p4: {
-        title: "max{'@'}ranger.co.at",
-        kind: 'Website · Privat',
-        desc: 'Diese Seite. Single-Page-Portfolio mit automatischem Hell/Dunkel-Wechsel, Befehlspalette, Custom Cursor und typisierter Inhalts-Schicht.',
+      cerberus: {
+        title: 'Cerberus',
+        kind: 'Web-App',
+        desc: 'Vereinssoftware für den Welser Hundesportklub. Mitglieder, Kurse und Teilnehmer wandern aus Tabellen an einen gemeinsamen Ort.',
       },
-      p5: {
-        title: 'Zeiterfassungs-Suite',
-        kind: 'Web-App · Internes HR',
-        desc: 'Enterprise-Zeiterfassung mit österreichischen KV-Regeln, Zeittöpfen und ausbalancierten Zeitsalden über komplexe Schichtmuster. Bei COUNT IT gebaut.',
+      manticore: {
+        title: 'Manticore',
+        kind: 'Web-App',
+        desc: 'Serviceberichte, Kunden, Verträge und Zeiterfassung für Installations- und Wartungsbetriebe. Dokumente kommen über einen LLM-Import herein, den ein Mensch prüft.',
       },
-      p6: {
-        title: 'Reisekosten-Tool',
-        kind: 'Web-App · Internes Tool',
-        desc: 'Reisekosten-Erfassung — Beleg-Upload, Freigaben, Lohnverrechnungs-Export. Bei COUNT IT gebaut.',
+      kitsune: {
+        title: 'Kitsune',
+        kind: 'Entwicklerwerkzeug',
+        desc: 'Mein Setup für Claude Code. Ein Gespräch formt eine Änderung, dann bauen Agenten sie, prüfen sie und öffnen einen Pull Request.',
+      },
+      invoice: {
+        title: 'Rechnungserkennung als SaaS',
+        desc: 'Liest Postfächer, findet Rechnungen, führt OCR aus und legt sie für die Buchhaltung ab. Ich habe sie gebaut und geleitet.',
+      },
+      energy: {
+        title: 'Plattform für Energiedaten',
+        desc: 'Zählerdaten, Dashboards und Berichte für das Energiemanagement.',
+      },
+      marketplace: {
+        title: 'Marktplatz für Vertriebsleute',
+        desc: 'Vertriebsleute auf Zeit buchen, mit Käuferabläufen, Verträgen und Abrechnung.',
+      },
+      timeTracking: {
+        title: 'Zeiterfassung',
+        desc: 'Zeiterfassung nach österreichischen Kollektivverträgen, auch bei komplexen Schichtmodellen.',
       },
     },
   },
   services: {
-    flowHint:
-      '// einsteigen, wo es passt, und dranhängen, wenn sinnvoll — bezahlte Vorleistungen werden auf den nächsten Schritt angerechnet',
+    hint: '// nur nebenprojekte. einstieg überall möglich. honorare werden auf den nächsten schritt angerechnet.',
+    from: 'ab {price}',
+    viewDetails: '{title}: Details ansehen',
+    units: {
+      hour: 'h',
+      day: 'Tag',
+      month: 'Monat',
+    },
     entries: {
       '01': {
         title: 'Beratung & Reviews',
-        flowLabel: 'beraten',
-        desc: 'Tech-Beratung, Architektur- & Code-Review, Konzept-bis-Spec — eine unabhängige zweite Meinung, wenn Sie eine brauchen.',
-        price: 'stunden- / tageweise',
+        desc: 'Technische Beratung, Architektur- und Code-Reviews, und aus einer Idee eine Spezifikation machen. Eine zweite Meinung, wenn Sie eine brauchen.',
         details:
-          'Unabhängige Perspektive für Teams, die eine brauchen. Stack-Wahl, wenn Sie unsicher sind, womit Sie bauen sollen. Architektur-Reviews mit schriftlichen Empfehlungen, Code- oder PR-Review bei kniffligen Änderungen, oder Konzept-bis-Spec-Sessions, um eine unscharfe Idee in etwas Quotable zu bringen. Keine Team-Aufstockung — ich halte die Engagements im Beratungs- und Review-Bereich, der neben einem Hauptjob Platz hat.',
+          'Eine zweite Meinung für Teams, die eine möchten. Ich helfe bei der Wahl des Tech-Stacks, wenn Sie unsicher sind, womit Sie bauen sollen. Ich prüfe Architektur und halte das Ergebnis schriftlich fest. Ich schaue mir Code oder einen Pull Request bei einer kniffligen Änderung an. Mit Ihnen forme ich aus einer vagen Idee auch eine Spezifikation, für die ein Entwickler ein Angebot legen kann. Ich verstärke Ihr Team nicht als zusätzliche Kapazität. Die Arbeit bleibt beratend, damit sie neben meinem Hauptberuf Platz hat.',
         included: [
-          'Stack- & Framework-Empfehlungen',
+          'Empfehlungen zu Tech-Stack und Frameworks',
           'Architektur-Review mit schriftlichen Notizen',
-          'Code- oder PR-Review in bestehenden Repos',
-          'Konzept-bis-Spec für neue Builds',
-          'Folgedokument mit konkreten nächsten Schritten',
+          'Code- oder Pull-Request-Review in bestehenden Repos',
+          'Vom Konzept zur Spezifikation für neue Projekte',
+          'Abschlussdokument mit konkreten nächsten Schritten',
         ],
         pricing: {
-          hourly: 'Stundensatz — Review / Beratung',
-          daily: 'Tagessatz — ganze Tage',
+          hourly: 'Stundensatz, Review oder Beratung',
+          daily: 'Tagessatz, ganze Tage',
         },
-        delivery: 'Termine üblicherweise 1 – 2 Wochen im Voraus',
+        delivery: 'Termine meist 1 bis 2 Wochen im Voraus',
         continuation:
-          'Wenn aus einer Beratung ein Prototyp oder Build wird, werden Stunden für Konzept-bis-Spec-Arbeit, die direkt in das Projekt einfließt, auf den Folgeauftrag angerechnet.',
+          'Wird aus der Beratung ein Prototyp oder Projekt, rechne ich die Stunden für dessen Spezifikation darauf an.',
       },
       '02': {
         title: 'Prototyping',
-        flowLabel: 'prototypen',
-        desc: 'Funktionierender Code-Entwurf in Tagen, nicht Monaten. Realistisch genug zum Validieren, knapp genug zum Wegwerfen — Code in Ihr Repo, kein Hosting inkludiert.',
-        price: 'fixer Umfang',
+        desc: 'Funktionierender Entwurfscode in wenigen Tagen. Gut genug, um eine Idee zu testen, günstig genug, um ihn wegzuwerfen. Hosting ist nicht dabei.',
         details:
-          'Ein lauffähiger, demo-fähiger Produktauschnitt in Tagen, nicht Monaten. Realistisch genug, um Nutzer:innen, Investoren oder dem eigenen Team gezeigt zu werden — gleichzeitig knapp genug zum Wegwerfen, wenn Sie etwas Neues lernen. Das Liefergut ist lauffähiger Code in Ihrem Repo (oder als Zip, falls noch keines existiert), kein gehosteter Production-Build — das ist eine separate Beauftragung.',
+          'Ein lauffähiger Ausschnitt eines Produkts, den Sie vorführen können, in Tagen statt Monaten. Er ist echt genug, um ihn Nutzern, Investoren oder Ihrem Team zu zeigen. Er ist klein genug, um ihn wegzuwerfen, wenn Sie etwas Neues lernen. Sie bekommen lauffähigen Code in Ihrem Repo, oder als Zip, falls Sie noch keines haben. Ein gehosteter Produktivbetrieb ist ein eigener Auftrag.',
         included: [
-          'Wireframe + UX für den Happy Path',
-          'Lauffähiger Entwurfs-Code — Frontend + optional Stub-Backend',
-          'Mock- oder Live-Daten, je nach Umfang',
-          'Source-Übergabe + Loom-Walkthrough',
-          'Kein Production-Deploy, kein Hosting-Setup',
+          'Wireframe und UX für den Hauptablauf',
+          'Lauffähiger Entwurfscode: Frontend, bei Bedarf mit Stub-Backend',
+          'Testdaten oder echte Daten, je nach Umfang',
+          'Quellcode und ein Loom-Rundgang',
+          'Kein Produktiv-Deploy, kein Hosting-Setup',
         ],
         pricing: {
           spike: '1-Tages-Spike',
           week: '1-Wochen-Prototyp',
           twoWeek: '2-Wochen-Prototyp',
         },
-        delivery: '1 Tag – 2 Wochen (kalendarisch)',
+        delivery: '1 Tag bis 2 Wochen (Kalenderzeit)',
         continuation:
-          'Wenn ein kleiner Build nachfolgt, wird der Prototyping-Betrag auf das Projekt angerechnet — keine Doppelverrechnung für dieselbe Arbeit.',
+          'Folgt ein kleines Projekt, rechne ich den Prototyping-Betrag darauf an. Sie zahlen dieselbe Arbeit nicht zweimal.',
       },
       '03': {
         title: 'Kleine Web-Apps & Websites',
-        flowLabel: 'bauen',
-        desc: 'Full-Stack-Builds für Marketing-Sites und kleine Anwendungen — von der Idee bis zum ausgelieferten Produkt.',
-        price: 'projekt-basiert',
+        desc: 'Marketing-Websites und kleine Anwendungen, von der ersten Idee bis zum Livegang.',
         details:
-          'Die meisten Builds beginnen mit einem Gespräch darüber, was Sie wirklich brauchen. Ich helfe, die Idee zu schärfen, sie in einen Entwurf oder Wireframe zu gießen, einen lauffähigen Prototypen zu bauen und das Ganze zu einem fertigen Produkt zu führen — Backend und Frontend, Deploy, Übergabe. Die Art Projekt, die nicht zusammenbricht, sobald ich weg bin.',
+          'Die meisten Projekte beginnen mit einem Gespräch darüber, was Sie wirklich brauchen. Ich helfe, die Idee zu schärfen und in einen Entwurf oder Wireframe zu bringen. Dann baue ich einen lauffähigen Prototyp und führe ihn zum fertigen Produkt, mit Backend, Frontend, Deployment und Übergabe. Es fällt nicht auseinander, sobald ich weg bin.',
         included: [
-          'Konzept-Schärfung & Wireframing',
-          'Datenbank-Schema & Migrationen',
-          'API in .NET (gelegentlich Node / TypeScript)',
+          'Konzept schärfen und Wireframes',
+          'Datenbankschema und Migrationen',
+          'API in .NET, gelegentlich Node oder TypeScript',
           'Frontend in Vue oder React',
-          'CI/CD-Pipeline + Dockerized Deploy',
-          'Übergabe-Dokumentation & On-Call-Fenster',
+          'CI/CD-Pipeline und Docker-Deployment',
+          'Übergabedokumentation und ein Bereitschaftsfenster',
         ],
         pricing: {
-          marketing: 'Marketing-Site (1–10 Seiten)',
-          singlePurpose: 'Web-App mit klarem Zweck',
-          saasMvp: 'Kleines SaaS-MVP (mehrbenutzerfähig)',
+          marketing: 'Marketing-Website (1 bis 10 Seiten)',
+          singlePurpose: 'Web-App mit einem klaren Zweck',
+          saasMvp: 'Kleines SaaS-MVP (mehrere Benutzer)',
         },
-        delivery: 'Nebenprojekt-Tempo — meist 4 – 16 Wochen ab Kickoff',
+        delivery: 'Nebenprojekt-Tempo, meist 4 bis 16 Wochen ab dem Start',
         continuation:
-          'Builds beginnen üblicherweise mit einer bezahlten Prototyping-Phase. Falls wir bereits einen Prototypen gemacht haben, wird dieser Betrag auf den Build angerechnet — keine Doppelverrechnung für bereits geleistete Arbeit.',
+          'Projekte beginnen meist mit einer bezahlten Prototyping-Phase. Haben wir schon einen Prototyp gebaut, rechne ich diesen Betrag auf das Projekt an. Sie zahlen geleistete Arbeit nicht zweimal.',
       },
       '04': {
-        title: 'Wartung & Retainer',
-        flowLabel: 'warten',
-        desc: 'Laufende Code-seitige Unterstützung für eine bestehende App oder Website — Bugfixes, Dependency-Updates, kleine Features, Deploys.',
-        price: 'monatlich',
+        title: 'Wartung',
+        desc: 'Bugfixes, Updates von Abhängigkeiten, kleine Features und Deployments für eine App, die Sie bereits betreiben.',
         details:
-          'Für Teams oder Solo-Gründer, die etwas ausgeliefert haben und eine ruhige Hand für die Pflege brauchen. Planbare Monatsstunden für alles auf der Code-Seite: Repo-Pflege, Bugfixes, Releases ausrollen, kleine UI-Anpassungen, Dependency-Upgrades und überschaubare Feature-Arbeit innerhalb des Stundenbudgets. Nur Code-seitig — ich beantworte keine Kunden-Mails zu Rückerstattungen, Preisen oder Produktfragen in Ihrem Namen.',
+          'Für Teams oder Einzelgründer, die etwas ausgeliefert haben und es in gutem Zustand halten wollen. Sie bekommen planbare Monatsstunden für alles auf der Code-Seite. Dazu gehören Repo-Pflege, Bugfixes, Releases, kleine UI-Anpassungen, Updates von Abhängigkeiten und überschaubare Features im Stundenbudget. Es geht nur um Code. Kundenmails zu Rückerstattungen, Preisen oder Produktfragen beantworte ich nicht für Sie.',
         included: [
-          'Repo- & Dependency-Pflege',
-          'Bugfixes & UI-Anpassungen',
-          'Deploys & Release-Rollouts',
-          'Kleine Features innerhalb des Stundenbudgets',
-          'Monitoring / Log-Review auf Anfrage',
-          'Nur Code-seitig — kein Kundensupport',
+          'Pflege von Repo und Abhängigkeiten',
+          'Bugfixes und UI-Anpassungen',
+          'Deployments und Releases',
+          'Kleine Features im Stundenbudget',
+          'Monitoring oder Log-Review auf Anfrage',
+          'Nur Code, kein Kundensupport',
         ],
         pricing: {
-          light: 'Klein — 5 h / Monat',
-          standard: 'Standard — 10 h / Monat',
-          heavy: 'Groß — 20 h / Monat',
+          light: 'Klein, 5 h / Monat',
+          standard: 'Standard, 10 h / Monat',
+          heavy: 'Groß, 20 h / Monat',
         },
-        delivery: 'Monatlich rollierend — monatskündbar, keine Bindung',
+        delivery: 'Monatlich kündbar, keine Bindung',
       },
     },
   },
   experience: {
     entries: {
+      cads: {
+        role: 'Softwareentwickler',
+        org: 'CADS',
+        years: 'Aug 2026 bis heute',
+        yearsShort: '2026 bis heute',
+        note: 'Vollzeit.',
+      },
       codebeam: {
         role: 'Softwareentwickler',
         org: 'codebeam',
-        note: 'Vollzeit, hybrid in Wels. Full-Stack-Produktarbeit über das codebeam-SaaS-Portfolio.',
+        years: 'Juni 2024 bis Juni 2026',
+        yearsShort: '2024 bis 2026',
+        note: 'Vollzeit, hybrid in Wels. Full-Stack-Arbeit an den SaaS-Produkten von codebeam.',
       },
       countItFulltime: {
         role: 'Softwareentwickler',
         org: 'COUNT IT Group',
-        note: 'Vollzeit in Hagenberg. Blazor- / .NET-Enterprise-Builds für Kunden — lange laufende Zeiterfassungs- und Reisekostensysteme.',
+        years: 'Okt 2022 bis Apr 2024',
+        yearsShort: '2022 bis 2024',
+        note: 'Vollzeit in Hagenberg. Blazor- und .NET-Systeme für Kunden, vor allem Zeiterfassung und Reisekosten.',
       },
       countItIntern: {
         role: 'Softwareentwickler (Praktikum)',
         org: 'COUNT IT Group',
-        note: 'Fünfmonatiges Praktikum mit Blazor- und Architektur-Fokus.',
+        years: 'Mai 2022 bis Sept 2022',
+        yearsShort: '2022',
+        note: 'Fünf Monate, mit Fokus auf Blazor und Softwarearchitektur.',
       },
       fhTutor: {
         role: 'Tutor, Softwareentwicklung',
         org: 'FH Hagenberg',
-        note: 'Tutor für Software-Architektur-Grundlagen für Bachelor-Studierende.',
+        years: 'Okt 2019 bis Juli 2020',
+        yearsShort: '2019 bis 2020',
+        note: 'Grundlagen der Softwarearchitektur für Bachelor-Studierende unterrichtet.',
       },
     },
   },
@@ -223,16 +258,22 @@ export default {
       fhHagenberg: {
         degree: 'BSc Software Engineering',
         org: 'FH Hagenberg',
-        note: 'Fachhochschule Oberösterreich, Campus Hagenberg.',
+        years: '2018 bis 2022',
+        yearsShort: '2018 bis 2022',
+        note: 'Fachhochschule Oberösterreich. Meine Abschlussarbeit war ein Code-Editor-Plugin für Moodle.',
       },
       wuVienna: {
-        degree: 'Bachelor (Wechsel)',
+        degree: 'Bachelor, nicht abgeschlossen',
         org: 'WU Wien',
-        note: 'Studienzweig Wirtschaftsinformatik an der Wirtschaftsuniversität Wien — ausprobiert, festgestellt dass Software die bessere Wahl ist, an die FH Hagenberg gewechselt.',
+        years: '2015 bis 2018',
+        yearsShort: '2015 bis 2018',
+        note: 'Wirtschaftsinformatik. Ich habe es probiert, Software war die bessere Wahl, und ich bin nach Hagenberg gewechselt.',
       },
       matura: {
         degree: 'Matura',
         org: 'BG/BRG Brucknerstraße',
+        years: '2006 bis 2014',
+        yearsShort: '2006 bis 2014',
         note: 'Wels, Österreich.',
       },
     },
@@ -240,7 +281,7 @@ export default {
   contact: {
     cardHead: 'message.txt',
     big: 'Sie bauen etwas?',
-    sub: 'Zwei Sätze Pitch + Timeline bekommen die schnellste Antwort.',
+    sub: 'Zwei Sätze und ein grober Zeitplan bringen die schnellste Antwort.',
     sendCta: 'senden →',
   },
   palette: {
@@ -256,7 +297,7 @@ export default {
       experience: { label: 'cd ~/erfahrung', hint: 'beruflicher werdegang' },
       education: { label: 'cd ~/ausbildung', hint: 'studium' },
       contact: { label: 'cd ~/kontakt', hint: 'kontakt aufnehmen' },
-      theme: { label: 'thema umschalten' },
+      theme: { label: 'farbschema umschalten' },
       language: { label: 'sprache umschalten' },
       mailto: { label: 'mailto: max' },
       legal: { label: 'impressum öffnen', hint: 'impressum · datenschutz · urheberrecht' },
@@ -268,13 +309,13 @@ export default {
     delivery: 'umsetzung',
     continuation: '// fortsetzung',
     rangesNote:
-      'Preisspannen sind Richtwerte — endgültiger Umfang und Angebot werden schriftlich vereinbart.',
+      'Preisspannen sind Richtwerte. Endgültiger Umfang und Angebot werden immer schriftlich vereinbart.',
     closeHint: 'zum Schließen',
     cta: 'Gespräch starten →',
-    inquirySubject: '[{id}] {title} — Anfrage',
+    inquirySubject: '[{id}] {title}: Anfrage',
   },
   status: {
-    builtWith: 'gebaut mit vue + vite',
+    shippedWith: 'ausgeliefert mit zero',
     copyright: '© {year} Maximilian Ranger',
     copyrightSuffix: 'Alle Rechte vorbehalten.',
     legalLink: 'impressum',
@@ -289,31 +330,26 @@ export default {
       imprintIntroHead: 'Angaben gemäß Gesetz',
       imprintIntroBody:
         'Maximilian Ranger\nSoftwareentwicklung\nCharwatstraße 10a\n4600 Wels, Österreich',
-      imprintTaxHead: 'Steuer & Identifikation',
-      imprintTaxBody: 'UID-Nummer: [PLATZHALTER]',
       imprintObligation:
         'Informationspflicht gemäß §5 ECG, §14 UGB, sowie Offenlegungspflicht gemäß §25 MedienG.',
       imprintContactHead: 'Kontakt',
-      imprintContactBody: "max{'@'}ranger.co.at",
+      imprintContactBody: "max{'@'}ranger.ac",
 
       copyrightHead: '// urheberrechtshinweis',
       copyrightBody:
-        "Sämtliche Inhalte dieser Website — einschließlich Texte, Bilder, Grafiken und Designs — sind urheberrechtlich geschützt und Eigentum von Maximilian Ranger, sofern nicht anders ausgewiesen. Jede Nutzung, Vervielfältigung oder Verbreitung ohne ausdrückliche schriftliche Zustimmung ist untersagt. Anfragen zur Verwendung von Inhalten richten Sie bitte an: max{'@'}ranger.co.at.",
+        "Sämtliche Inhalte dieser Website, einschließlich Texte, Bilder, Grafiken und Designs, sind urheberrechtlich geschützt und Eigentum von Maximilian Ranger, sofern nicht anders ausgewiesen. Jede Nutzung, Vervielfältigung oder Verbreitung ohne ausdrückliche schriftliche Zustimmung ist untersagt. Anfragen zur Verwendung von Inhalten richten Sie bitte an: max{'@'}ranger.ac.",
 
       privacyHead: '// datenschutz',
       privacyBody:
-        'Diese Website ist weitgehend statisch. Wenn Sie über den E-Mail-Link Kontakt aufnehmen, werden Ihre E-Mail-Adresse und Nachricht ausschließlich zur Bearbeitung der Anfrage verarbeitet (Art. 6 Abs. 1 lit. b DSGVO). Der Hosting-Provider kann technische Anfrage-Daten (IP, Zeit, User-Agent) zu Sicherheitszwecken kurzzeitig protokollieren. Schriftarten werden von Google Fonts geladen, dabei wird Ihre IP-Adresse an Google übertragen (Art. 6 Abs. 1 lit. f DSGVO). Theme- und Spracheinstellungen werden im Browser (localStorage) gespeichert und nie übertragen. Sie haben das Recht auf Auskunft, Berichtigung, Löschung sowie Beschwerde bei der Datenschutzbehörde Österreich (https://www.dsb.gv.at).',
+        'Diese Website ist weitgehend statisch. Wenn Sie über den E-Mail-Link Kontakt aufnehmen, werden Ihre E-Mail-Adresse und Nachricht ausschließlich zur Bearbeitung der Anfrage verarbeitet (Art. 6 Abs. 1 lit. b DSGVO). Der Hosting-Provider kann technische Anfrage-Daten (IP, Zeit, User-Agent) zu Sicherheitszwecken kurzzeitig protokollieren. Farbschema- und Spracheinstellungen werden im Browser (localStorage) gespeichert und nie übertragen. Sie haben das Recht auf Auskunft, Berichtigung, Löschung sowie Beschwerde bei der Datenschutzbehörde Österreich (https://www.dsb.gv.at).',
 
       liabilityHead: '// haftung für externe links',
       liabilityBody:
         'Externe Links wurden zum Zeitpunkt der Verlinkung geprüft. Für die laufenden und künftigen Inhalte verlinkter Seiten ist ausschließlich der jeweilige Betreiber verantwortlich.',
 
-      odrHead: '// online-streitbeilegung',
-      odrBody: 'Plattform der EU-Kommission zur Online-Streitbeilegung: https://ec.europa.eu/odr',
-
       attributionHead: '// danksagungen',
       attributionZero:
-        'Das Zero-Logo ist ein Markenzeichen von shipzero und wird hier mit Anerkennung verwendet. Diese Seite wurde mit Zero ausgeliefert —',
+        'Das Zero-Logo ist ein Markenzeichen von shipzero und wird hier mit Anerkennung verwendet. Diese Seite wurde mit Zero ausgeliefert:',
     },
   },
 };

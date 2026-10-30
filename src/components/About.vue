@@ -24,47 +24,47 @@ const skillGroups = computed(() =>
 
 <template>
   <section id="about" class="section">
-    <SectionHead tag="// 01" :title="$t('sections.about')" />
+    <SectionHead :title="$t('sections.about')" />
     <div class="about-grid">
-      <div class="card about-portrait" data-reveal>
-        <div class="card-head">{{ $t('about.cardPortrait') }}</div>
-        <div class="card-body">
-          <img
-            src="/portrait.png"
-            :alt="name"
-            width="827"
-            height="1063"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-      </div>
       <div class="card about-card" data-reveal>
         <div class="card-head">{{ $t('about.cardReadme') }}</div>
         <div class="card-body md">
-          <p>{{ $t('about.headings.title') }}</p>
+          <p class="md-head">{{ $t('about.headings.title') }}</p>
           <p>{{ $t('about.intro') }}</p>
-          <p>{{ $t('about.headings.howIWork') }}</p>
+          <p class="md-head">{{ $t('about.headings.howIWork') }}</p>
           <p>{{ $t('about.howIWork') }}</p>
-          <p>{{ $t('about.headings.goodAt') }}</p>
-          <p>
-            <template v-for="(line, i) in goodAt" :key="i">
-              — {{ line }}<br v-if="i < goodAt.length - 1" />
-            </template>
-          </p>
+          <p class="md-head">{{ $t('about.headings.goodAt') }}</p>
+          <ul>
+            <li v-for="line in goodAt" :key="line">{{ line }}</li>
+          </ul>
         </div>
       </div>
-      <div class="card" data-reveal>
-        <div class="card-head">{{ $t('about.cardStack') }}</div>
-        <div class="card-body stack">
-          <div v-for="group in skillGroups" :key="group.key" class="stack-group">
-            <div class="stack-key">"{{ group.label }}": [</div>
-            <div class="stack-val">
-              <span v-for="(s, i) in group.items" :key="s" class="stack-item">
-                "{{ s }}"<template v-if="i < group.items.length - 1">,</template>
-              </span>
+      <div class="about-side">
+        <div class="card about-portrait" data-reveal>
+          <div class="card-head">{{ $t('about.cardPortrait') }}</div>
+          <div class="card-body">
+            <img
+              src="/portrait.webp"
+              :alt="name"
+              width="680"
+              height="875"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+        <div class="card" data-reveal>
+          <div class="card-head">{{ $t('about.cardStack') }}</div>
+          <div class="card-body stack">
+            <div v-for="group in skillGroups" :key="group.key" class="stack-group">
+              <div class="stack-key">"{{ group.label }}": [</div>
+              <div class="stack-val">
+                <span v-for="(s, i) in group.items" :key="s" class="stack-item">
+                  "{{ s }}"<template v-if="i < group.items.length - 1">,</template>
+                </span>
+              </div>
+              <div class="stack-key">],</div>
             </div>
-            <div class="stack-key">],</div>
           </div>
         </div>
       </div>
