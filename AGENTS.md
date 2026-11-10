@@ -18,6 +18,10 @@ Docker image and pushes it to GHCR (`.github/workflows/docker.yml`). Layout and 
 - `pnpm typecheck` runs vue-tsc. There is no `test` script.
 - `pnpm og:render` turns `public/og-image.svg` into `og-image.png`.
 
+## Knowledge
+
+Knowledge lives in the brain, the Basic Memory project `brain` in the kitsune checkout (`~/Code/kitsune/brain`): the kitsune hooks bring the project note `projects/homepage.md` into the session, more comes from `bm tool search "<words>" --project brain`, and new facts (state, architecture, decisions, how to operate) go there through `bm tool write` and `bm tool edit`, never into a file here. This repo has no `docs/`. When the first feature-sized change needs a spec, it gets `docs/overview.md` (a pointer), `docs/specs/<feature>/` and `docs/review.md` from kitsune's repo template, and nothing else. A decision is a note under the brain's `decisions/`, written once Max approved it.
+
 ## Conventions & Gotchas
 
 - Static data (ids, urls, technology names, prices) lives in `src/content.ts`. Every translatable
