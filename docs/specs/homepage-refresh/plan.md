@@ -17,7 +17,7 @@ The look is in the approved mockup: https://claude.ai/artifact/23vVAJe5LnXCcToBa
 - `src/main.ts`, `package.json`, `pnpm-lock.yaml`: fonts (step 4).
 - `public/`: add `favicon.svg`, `apple-touch-icon.png`, `portrait.webp`, remove `portrait.png`, edit `og-image.svg`, regenerate `og-image.png` (step 4).
 - `scripts/render-og.mjs`: also render the touch icon (step 4).
-- `README.md`, `docs/architecture.md`: match the result (step 6).
+- `README.md`: matches the result (step 6). The architecture text now lives in the brain's project note.
 
 ## Order
 
@@ -42,7 +42,7 @@ The look is in the approved mockup: https://claude.ai/artifact/23vVAJe5LnXCcToBa
    - `useTheme`: set the document background to the theme's ground on every change, so overscroll matches. Keep the inline script in `index.html`.
    - `Shell.scrollTo` keeps `scrollIntoView`, without an explicit `behavior`, so reduced motion applies. `HeroRipple` needs no change.
    - Modals: backdrops are fixed and already fine. The background did move, so `useFocusTrap` locks document scroll while any modal is open, and `scrollbar-gutter: stable` on `html` stops the layout shifting.
-6. Docs. README layout, deploy notes and the placeholder note. `docs/architecture.md` external systems no longer lists Google Fonts. Update this plan and the spec if the build departs from them.
+6. Docs. README layout, deploy notes and the placeholder note. The architecture's external systems no longer list Google Fonts. Update this plan and the spec if the build departs from them.
 
 ## Copy brief
 
